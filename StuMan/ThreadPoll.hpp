@@ -61,9 +61,6 @@ private:
             T task = self->pop();
             self->Unlock();
             task();
-            pthread_mutex_lock(&(self->_screen_mutex));
-            printf("i am %s,i consum a task : %s\n", self->Get_name(pthread_self()).c_str(), (task.Get_ret()).c_str());
-            pthread_mutex_unlock(&(self->_screen_mutex));
         }
     }
 
@@ -108,5 +105,4 @@ private:
     size_t _num;
     pthread_mutex_t _mutex;
     pthread_cond_t _cond;
-    pthread_mutex_t _screen_mutex;
 };
