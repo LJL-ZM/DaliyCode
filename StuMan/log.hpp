@@ -73,7 +73,7 @@ private:
         }
     }
     void one_file(const char* path, string message){
-        int fd = open(path, O_RDONLY | O_WRONLY | O_CREAT);   
+        int fd = open(path, O_RDONLY | O_WRONLY | O_CREAT | O_APPEND, 0644);   
         if(fd < 0){
             perror("log---open");
             exit(0);

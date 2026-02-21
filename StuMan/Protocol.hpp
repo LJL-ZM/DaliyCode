@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 #include <jsoncpp/json/json.h>
+#include "log.hpp"
+
+extern Log lg;
 
 //加报头:len+\n+info+\n
 std::string Encode(std::string& info){
@@ -55,10 +58,10 @@ public:
         _name = root["_name"].asString();
         _id = root["_id"].asString();
         _score = root["_score"].asDouble();
+        return true;
     }
-
-private:
     std::string _op_type;
+    std::string _order;
     std::string _name;
     std::string _id;
     double _score;
@@ -84,9 +87,8 @@ public:
         r.parse(in, root);
         _info = root["_info"].asString();
         _meg = root["_meg"].asString();
+        return true;
     }
-
-private:
     std::string _info;//存储查找操作的时候信息
     std::string _meg;//存储确认信息
 };

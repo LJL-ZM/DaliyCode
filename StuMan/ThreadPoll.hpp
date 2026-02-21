@@ -70,14 +70,14 @@ public:
         ,_thread_poll(num)
     {
         pthread_mutex_init(&_mutex, nullptr);
-        pthread_mutex_init(&_screen_mutex, nullptr);
+        // pthread_mutex_init(&_screen_mutex, nullptr);
         pthread_cond_init(&_cond, nullptr);
     }
     void push(const T &in)
     {
         Lock();
         _q.push(in);
-        printf("push a task : %s\n", (in.Get_task()).c_str());
+        // printf("push a task : %s\n", (in.Get_task()).c_str());
         Unlock();
         signal();
     }
