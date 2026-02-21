@@ -46,7 +46,7 @@ public:
             lg(WARN, "listen err,str : %s", strerror(errno));
         }
     }
-    int Accept(){
+    int Accept(string& ip, int& port){
         sockaddr_in client;
         memset(&client, 0, sizeof(client));
         socklen_t len = sizeof(client);
@@ -54,6 +54,7 @@ public:
         if(socket < 0){
             lg(WARN, "accept err,str : %s", strerror(errno));
         }
+        fromNetToh(client, ip, port);
         return socket;
     }
     void Connect(int sockfd, const char* ip, u_int16_t port){
@@ -66,6 +67,10 @@ public:
         if(connect_ret < 0){
             lg(WARN, "connect err,str : %s", strerror(errno));
         }
+    }
+    void fromNetToh(const sockaddr_in& in, std::string& ip, int& port){
+        ip = inet_ntoa(in.sin_addr);
+        port = ntohs(in.sin_port);
     }
     int Get_Sock(){
         return _listenfd;
