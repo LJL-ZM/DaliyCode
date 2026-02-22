@@ -51,7 +51,7 @@ private:
     Node* head;          
     int count;         
     // 根据学号查找节点
-    Node* findNodeById(const string& id) {
+    Node* findNodeById(const std::string& id) {
         if (count == 0) return nullptr;
         
         Node* p = head->next;
@@ -65,7 +65,7 @@ private:
     }
 
     //校验学号是否重复
-    int checkStudentId(const string& id) {
+    int checkStudentId(const std::string& id) {
         if (findNodeById(id) != nullptr) {
             lg(WARN, "Student id check failed: id [%s] already exists", id.c_str());
             return ID_DUPLICATE;
@@ -74,7 +74,7 @@ private:
     }
 
     // 保存到二进制文件
-    bool saveToBinFile(const string& store_filename = BIN_FILE) {
+    bool saveToBinFile(const std::string& store_filename = BIN_FILE) {
         FILE* fp = fopen(store_filename.c_str(), "wb");
         if (fp == nullptr) {
             lg(ERROR, "File open failed: [%s], err str:%s", store_filename.c_str(), strerror(errno));
@@ -156,7 +156,7 @@ public:
     }
 
     // 学号查询学生
-    Student* findStudentById(const string& id) {
+    Student* findStudentById(const std::string& id) {
         Node* p = findNodeById(id);
         if (p == nullptr) {
             lg(INFO, "Student query failed: id [%s] not found", id.c_str());
@@ -167,7 +167,7 @@ public:
     }
 
     // 修改学生信息
-    bool modifyStudent(const string& id, const string& newName, float newScore) {
+    bool modifyStudent(const std::string& id, const std::string& newName, float newScore) {
         Student* s = findStudentById(id);
         if (s == nullptr) {
             lg(ERROR, "Student modify failed: id [%s] not found", id.c_str());
@@ -188,7 +188,7 @@ public:
     }
 
     // 删除学生信息
-    bool deleteStudent(const string& id) {
+    bool deleteStudent(const std::string& id) {
         Node* delNode = findNodeById(id);
         if (delNode == nullptr) {
             lg(ERROR, "Student delete failed: id [%s] not found", id.c_str());
@@ -347,7 +347,7 @@ public:
     }
 
     // 从二进制文件读取
-    bool readFromBinFile(const string& store_filename = BIN_FILE) {
+    bool readFromBinFile(const std::string& store_filename = BIN_FILE) {
         FILE* fp = fopen(store_filename.c_str(), "rb");
         if (fp == nullptr) {
             lg(ERROR, "File open failed: [%s], err str:%s", store_filename.c_str(), strerror(errno));
