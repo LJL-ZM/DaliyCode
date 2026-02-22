@@ -1,6 +1,28 @@
 #pragma once
 #define protocol_sem '\n'
 
+
+//操作类型定义
+#define OP_ADD_STUDENT 1   // 添加学生
+#define OP_DEL_STUDENT 2   // 删除学生
+#define OP_MOD_STUDENT 3   // 修改学生
+#define OP_QUERY_STUDENT 4 // 按ID查询
+#define OP_GET_ALL 5       // 获取所有学生
+#define OP_SORT_SCORE 6    // 按成绩排序
+#define OP_SORT_ID 7       // 按学号排序
+#define OP_STATISTIC 8     // 成绩统计
+#define OP_CLEAR_ALL 9     // 清空所有
+#define OP_SAVE_FILE 10    // 保存文件
+#define OP_LOAD_FILE 11    // 加载文件
+#define OP_REGISTER 12     // 注册
+#define OP_LOGIN 13        //登录
+
+
+//权限身份定义
+#define ROLE_STU 1         //学生
+#define ROLE_TEA 2         //老师
+#define ROLE_MAN 3         //管理员
+
 #include <iostream>
 #include <string>
 #include <jsoncpp/json/json.h>
@@ -33,7 +55,16 @@ bool Decode(std::string& package, std::string& info){
     return true;
 }
 
-class request
+class BaseRequest{
+public:
+    virtual ~BaseRequest() = 0;
+    virtual bool Serialize(std::string &out) = 0;
+    virtual bool DeSerialize(const std::string &in) = 0;
+    virtual int GetOp() const = 0;
+};
+
+//对信息的增删查改
+class StuRequest : public BaseRequest
 {
 public:
     // 序列化
@@ -44,6 +75,7 @@ public:
         root["_op_type"] = _op_type;
         root["_name"] = _name;
         root["_id"] = _id;
+        root["_order"] = _order;
         root["_score"] = _score;
         out = w.write(root);
         return true;
@@ -58,13 +90,60 @@ public:
         _name = root["_name"].asString();
         _id = root["_id"].asString();
         _score = root["_score"].asDouble();
+        _order = root["_order"].asString();
         return true;
     }
+    int GrtOp() const{
+        return std::stoi(_op_type);
+    }
+    // virtual ~BaseRequest() = 0;
+    // virtual bool Serialize(std::string &out) = 0;
+    // virtual bool DeSerialize(const std::string &in) = 0;
+    // virtual int GetOp() = 0;
     std::string _op_type;
     std::string _order;
     std::string _name;
     std::string _id;
     double _score;
+};
+
+class RegLoginRequest : public BaseRequest
+{
+public:
+    bool Serialize(std::string &out){
+        Json::Value root;
+        Json::FastWriter w;
+        root["_ip"] = _ip;
+        root["_user_name"] = _user_name;
+        root["_password"] = _password;
+        root["_role"] = _role;
+        out = w.write(root);
+        return true;
+    }
+
+    bool DeSerialize(const std::string &in){
+        Json::Value root;
+        Json::Reader r;
+        r.parse(in, root);
+        _ip = root["_ip"].asString();
+        _user_name = root["_user_name"].asString();
+        _password = root["_password"].asString();
+        _role = root["_role"].asString();
+    }
+
+    virtual int GetOp() const{
+        return OP_REGISTER;
+    }
+    // virtual ~BaseRequest() = 0;
+    // virtual bool Serialize(std::string &out) = 0;
+    // virtual bool DeSerialize(const std::string &in) = 0;
+    // virtual int GetOp() = 0;
+
+    //<ip+用户名， ip+用户名+密码+权限>;
+    std::string _ip;
+    std::string _user_name;
+    std::string _password;
+    std::string _role = "0"; 
 };
 
 class response

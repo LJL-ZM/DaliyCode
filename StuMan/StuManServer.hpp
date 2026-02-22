@@ -1,16 +1,21 @@
 #pragma once
 #include <iostream>
+#include <unordered_map>
+#include <cstring>
+#include <sys/types.h>
 #include "log.hpp"
 #include "ThreadPoll.hpp"
 #include "Protocol.hpp"
 #include "Sock.hpp"
 #include "Task.hpp"
 #include "StudentManager.hpp"
-#include <sys/types.h>
-#include <cstring>
+
+//后续要对共享资源都枷锁！！！！！
+
 
 extern Log lg;
 extern StudentManager Manager;
+
 
 class StuManServer
 {
