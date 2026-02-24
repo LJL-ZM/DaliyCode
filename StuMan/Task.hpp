@@ -7,23 +7,20 @@
 #include "StudentManager.hpp"
 #include "RegLoginMan.hpp"
 
-extern Log lg;
-extern StudentManager Manager;
-extern RegLoginMan RegLogMan;
 class Task
 {
 private:
-    unique_ptr<BaseRequest> createRequest(int op_type) const
+    shared_ptr<BaseRequest> createRequest(int op_type) const
     {
         // 注册登录
         if (op_type == OP_REGISTER || op_type == OP_LOGIN)
         {
-            return unique_ptr<RegLoginRequest>();
+            return shared_ptr<RegLoginRequest>(new RegLoginRequest());
         }
         // 其它
         else
         {
-            return unique_ptr<StuRequest>();
+            return shared_ptr<StuRequest>(new StuRequest());
         }
     }
 
@@ -116,11 +113,13 @@ public:
             lg(WARN, "DeSerialize fail with [%s:%d]", _clientip.c_str(), _clientport);
             return false;
         }
+        return true;
     }
 
     void operator()()
     {
         std::string meg, info;
+        int confirm_code = -1, permission = -1;
         if (initTask())
         {
             int op = _req_ptr->GetOp();
@@ -320,6 +319,7 @@ public:
                 if(RegisterRet == UNKNOWN_ERR){
                     meg = "Unknown err, contact admin!";
                     info = "";
+
                 }
                 else if(RegisterRet == REG_FILE_ERR){
                     meg = "reg file fail, contact admin!";
@@ -332,7 +332,10 @@ public:
                 else if(RegisterRet == REG_SUCCESS){
                     meg = "Registe success!";
                     info = "";
+                    confirm_code = 1;//成功注册
+                    //注册之后还要登录
                 }
+                break;
             }
             case OP_LOGIN:{
                 //登录
@@ -353,7 +356,10 @@ public:
                 else if(LoginRet == LOGIN_SUCCESS){
                     meg = "login success!";
                     info = "";
+                    confirm_code = 1;//成功登录
+                    permission = std::stoi(_req._role);//返回当前登录者权限
                 }
+                break;
             }
             default:
                 meg = "Bad Request!";
@@ -368,6 +374,8 @@ public:
         // 成功处理的话，加载好并发回_reps
         _reps._info = info;
         _reps._meg = meg;
+        _reps._confirm_code =  confirm_code;
+        _reps._permission = permission;
         std::string ret_info;
         _reps.Serialize(ret_info);
         ret_info = Encode(ret_info);
@@ -379,7 +387,7 @@ public:
 
 private:
     // request _req;
-    std::unique_ptr<BaseRequest> _req_ptr;
+    std::shared_ptr<BaseRequest> _req_ptr;
     response _reps;
     int _socketfd;
     std::string _clientip;
