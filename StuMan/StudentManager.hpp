@@ -1,3 +1,6 @@
+#pragma once
+
+
 #include <iostream>
 #include <cstdio>
 #include <string>
@@ -8,11 +11,13 @@
 #include <vector>
 #include "log.hpp" 
 
+
+
+
 const int MIN_SCORE = 0;       
 const int MAX_SCORE = 100;     
 const string BIN_FILE = "./store/student_bin.dat";   
 
-extern Log lg;
 
 // 错误码枚举
 enum ErrorCode {
@@ -29,6 +34,11 @@ struct Student {
     :id(id)
     ,name(name)
     ,score(score)
+    {}
+    Student(const Student& st)
+    :id(st.id)
+    ,name(st.name)
+    ,score(st.score)
     {}
     Student(){}
     string id;     
@@ -297,7 +307,7 @@ public:
         return true;
     }
 
-    // 成绩统计（输出参数返回结果）
+    // 成绩统计
     bool scoreStatistics(int& totalCount, float& avgScore, float& maxScore, 
                         float& minScore, int& excellent, int& fail) {
         if (count == 0) {

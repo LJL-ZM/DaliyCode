@@ -10,11 +10,9 @@
 #include "Task.hpp"
 #include "StudentManager.hpp"
 
-//后续要对共享资源都枷锁！！！！！
+//后续要对共享资源都加锁！！！！！
 
 
-extern Log lg;
-extern StudentManager Manager;
 
 
 class StuManServer
@@ -39,6 +37,7 @@ public:
     }
     void Run()
     {
+        lg(INFO, "server is running!");
         while (true)
         {
             string clientIp;

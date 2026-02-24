@@ -28,7 +28,6 @@
 #include <jsoncpp/json/json.h>
 #include "log.hpp"
 
-extern Log lg;
 
 //加报头:len+\n+info+\n
 std::string Encode(std::string& info){
@@ -57,7 +56,7 @@ bool Decode(std::string& package, std::string& info){
 
 class BaseRequest{
 public:
-    virtual ~BaseRequest() = 0;
+    virtual ~BaseRequest(){};
     virtual bool Serialize(std::string &out) = 0;
     virtual bool DeSerialize(const std::string &in) = 0;
     virtual int GetOp() const = 0;
@@ -93,7 +92,7 @@ public:
         _order = root["_order"].asString();
         return true;
     }
-    int GrtOp() const{
+    int GetOp() const{
         return std::stoi(_op_type);
     }
     // virtual ~BaseRequest() = 0;
@@ -129,9 +128,10 @@ public:
         _user_name = root["_user_name"].asString();
         _password = root["_password"].asString();
         _role = root["_role"].asString();
+        return true;
     }
 
-    virtual int GetOp() const{
+    int GetOp() const{
         return OP_REGISTER;
     }
     // virtual ~BaseRequest() = 0;
@@ -170,4 +170,6 @@ public:
     }
     std::string _info;//存储查找操作的时候信息
     std::string _meg;//存储确认信息
+    int _confirm_code = -1;//登录注册时返回，0失败，1成功
+    int _permission = -1;//1学生2老师3管理员
 };
