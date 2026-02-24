@@ -3,9 +3,8 @@
 #include "log.hpp"
 using namespace std;
 int main(){
-    StuManServer server(8888);
+    StuManServer& server = StuManServer::getInstance();
     server.Init();
-    lg(INFO, "server init success!");
     server.Run();
 
 
