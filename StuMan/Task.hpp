@@ -33,44 +33,52 @@ public:
     bool initTask()
     {
         char request_buf[SIZE];
-        std::string req; // 消息全部读取进req
-        int cnt = 0, flag = 0;
-        while (true)
+        //int cnt = 0, flag = 0;
+        // while (true)
+        // {
+        //     cnt++;
+        //     int read_bytes = read(_socketfd, request_buf, sizeof(request_buf));
+        //     if (read_bytes < 0)
+        //     {
+        //         lg(ERROR, "read fail with [%s:%d], err str:%s", _clientip.c_str(), _clientport, strerror(errno));
+        //         flag = 1;
+        //         break;
+        //     }
+        //     else if (read_bytes == 0)
+        //     {
+        //         if (cnt == 1)
+        //         {
+        //             lg(ERROR, "read fail with [%s:%d], err str:%s", _clientip.c_str(), _clientport, strerror(errno));
+        //             flag = 1;
+        //             break;
+        //         }
+        //         else
+        //         {
+        //             break;
+        //         }
+        //     }
+        //     else
+        //     {
+        //         req.append(request_buf, read_bytes);
+        //         continue;
+        //     }
+        // }
+        // if (flag)
+        // {
+        //     close(_socketfd);
+        //     return false;
+        // }
+
+
+        int read_bytes = read(_socketfd, request_buf, sizeof(request_buf));
+        if (read_bytes <= 0)
         {
-            cnt++;
-            int read_bytes = read(_socketfd, request_buf, sizeof(request_buf));
-            if (read_bytes < 0)
-            {
-                lg(ERROR, "read fail with [%s:%d], err str:%s", _clientip.c_str(), _clientport, strerror(errno));
-                flag = 1;
-                break;
-            }
-            else if (read_bytes == 0)
-            {
-                if (cnt == 1)
-                {
-                    lg(ERROR, "read fail with [%s:%d], err str:%s", _clientip.c_str(), _clientport, strerror(errno));
-                    flag = 1;
-                    break;
-                }
-                else
-                {
-                    break;
-                }
-            }
-            else
-            {
-                req.append(request_buf, read_bytes);
-                continue;
-            }
-        }
-        if (flag)
-        {
+            lg(ERROR, "read fail with [%s:%d], err str:%s", _clientip.c_str(), _clientport, strerror(errno));
             close(_socketfd);
             return false;
         }
         // 读到了一条消息
-        std::string req_package = req, info;
+        std::string req_package = request_buf, info;
         if (!Decode(req_package, info))
         {
             // 解码失败
@@ -315,6 +323,7 @@ public:
             case OP_REGISTER:{
                 //注册
                 auto &_req = static_cast<RegLoginRequest&>(*_req_ptr);
+                _req._ip = _clientip;
                 int RegisterRet = RegLogMan.Register(_req._ip, _req._user_name, _req._password, _req._role);
                 if(RegisterRet == UNKNOWN_ERR){
                     meg = "Unknown err, contact admin!";
@@ -340,6 +349,8 @@ public:
             case OP_LOGIN:{
                 //登录
                 auto &_req = static_cast<RegLoginRequest&>(*_req_ptr);
+                _req._ip = _clientip;
+
                 int LoginRet = RegLogMan.Login(_req._ip, _req._user_name, _req._password);
                 if(LoginRet == LOGIN_USER_NOT_EXIST){
                     meg = "have no the user!";
@@ -374,11 +385,12 @@ public:
         // 成功处理的话，加载好并发回_reps
         _reps._info = info;
         _reps._meg = meg;
-        _reps._confirm_code =  confirm_code;
+        _reps._confirm_code = confirm_code;
         _reps._permission = permission;
         std::string ret_info;
         _reps.Serialize(ret_info);
         ret_info = Encode(ret_info);
+        //cout << ret_info << endl;
         write(_socketfd, ret_info.c_str(), ret_info.size());
         close(_socketfd);
     }

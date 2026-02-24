@@ -60,6 +60,7 @@ public:
     virtual bool Serialize(std::string &out) = 0;
     virtual bool DeSerialize(const std::string &in) = 0;
     virtual int GetOp() const = 0;
+    std::string _op_type;
 };
 
 //对信息的增删查改
@@ -99,7 +100,7 @@ public:
     // virtual bool Serialize(std::string &out) = 0;
     // virtual bool DeSerialize(const std::string &in) = 0;
     // virtual int GetOp() = 0;
-    std::string _op_type;
+    // std::string _op_type;
     std::string _order;
     std::string _name;
     std::string _id;
@@ -109,6 +110,13 @@ public:
 class RegLoginRequest : public BaseRequest
 {
 public:
+    RegLoginRequest(){}
+    RegLoginRequest(std::string user_name, std::string password, int role, std::string op_type){
+        _user_name =user_name;
+        _password = password;
+        _role = to_string(role);
+        _op_type = op_type;
+    }
     bool Serialize(std::string &out){
         Json::Value root;
         Json::FastWriter w;
@@ -116,6 +124,7 @@ public:
         root["_user_name"] = _user_name;
         root["_password"] = _password;
         root["_role"] = _role;
+        root["_op_type"] = _op_type;
         out = w.write(root);
         return true;
     }
@@ -128,12 +137,13 @@ public:
         _user_name = root["_user_name"].asString();
         _password = root["_password"].asString();
         _role = root["_role"].asString();
+        _op_type = root["_op_type"].asString();
         return true;
     }
 
     int GetOp() const{
         //TODO:注册登录逻辑问题解决
-        return OP_REGISTER;
+        return std::stoi(_op_type);
     }
     // virtual ~BaseRequest() = 0;
     // virtual bool Serialize(std::string &out) = 0;
@@ -145,17 +155,32 @@ public:
     std::string _user_name;
     std::string _password;
     std::string _role = "0"; 
+    //std::string _op_type;
 };
 
 class response
 {
 public:
+    response(){}
+    response(const std::string info){
+        DeSerialize(info);
+    }
+
+    response(const response& reps)
+    :_info(reps._info)
+    ,_meg(reps._meg)
+    ,_confirm_code(reps._confirm_code)
+    ,_permission(reps._permission)
+    {}
+
     bool Serialize(std::string &out)
     {
         Json::Value root;
         Json::FastWriter w;
         root["_info"] = _info;
         root["_meg"] = _meg;
+        root["_confirm_code"] = _confirm_code;
+        root["_permission"] = _permission;
         out = w.write(root);
         return true;
     }
@@ -167,6 +192,8 @@ public:
         r.parse(in, root);
         _info = root["_info"].asString();
         _meg = root["_meg"].asString();
+        _confirm_code = root["_confirm_code"].asInt();
+        _permission = root["_permission"].asInt();
         return true;
     }
     std::string _info;//存储查找操作的时候信息
