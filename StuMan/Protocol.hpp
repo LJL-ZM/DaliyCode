@@ -132,6 +132,7 @@ public:
     }
 
     int GetOp() const{
+        //TODO:注册登录逻辑问题解决
         return OP_REGISTER;
     }
     // virtual ~BaseRequest() = 0;

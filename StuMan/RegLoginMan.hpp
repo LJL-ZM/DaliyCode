@@ -132,9 +132,31 @@ private:
         return true;
     }
 
-public:
     // 初始化
-    RegLoginMan() {
+    RegLoginMan()
+    :_is_init(false) {}
+
+    RegLoginMan(const RegLoginMan&) = delete;
+    RegLoginMan& operator=(const RegLoginMan&) = delete;
+public:
+    static RegLoginMan& getInstance(){
+        if(_ptr == nullptr){
+            pthread_mutex_lock(&_static_creat_mutex);
+            if(_ptr == nullptr){
+                _ptr = new RegLoginMan();
+            }
+            pthread_mutex_unlock(&_static_creat_mutex);
+        }
+        return *_ptr;
+    }
+    void Init(){
+        if(_is_init){
+            return;
+        }
+        pthread_mutex_lock(&_static_creat_mutex);
+        if(_is_init){
+            pthread_mutex_unlock(&_static_creat_mutex);
+        }
         int ret = pthread_mutex_init(&_mutex, nullptr);
         if (ret != 0) {
             lg(FATAL, "mutex init fail");
@@ -144,8 +166,9 @@ public:
             lg(FATAL, "read file fail");
             exit(READ_FROM_FILE_ERR);
         }
+        _is_init = true;
+        pthread_mutex_unlock(&_static_creat_mutex);
     }
-
     // 注册
     int Register(const std::string& ip, 
                  const std::string& username, 
@@ -203,6 +226,15 @@ public:
     }
 
 private:
-    std::unordered_map<std::string, UserData> _userInfo;
+    std::unordered_map<std::string, UserData> _userInfo;//ip+用户名：ip、用户名、密码、权限
     pthread_mutex_t _mutex;
-}RegLogMan;
+    bool _is_init;
+
+    static pthread_mutex_t _static_creat_mutex;
+    static RegLoginMan* _ptr;
+};
+
+pthread_mutex_t RegLoginMan::_static_creat_mutex = PTHREAD_MUTEX_INITIALIZER;
+RegLoginMan* RegLoginMan::_ptr = nullptr;
+
+#define RegLogMan RegLoginMan::getInstance()
