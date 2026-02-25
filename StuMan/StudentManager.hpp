@@ -242,21 +242,26 @@ public:
 
     // 修改学生信息
     bool modifyStudent(const std::string& id, const std::string& newName, float newScore) {
+        //std::cout << id << ' ' << newName << ' ' << newScore << std::endl;
         pthread_mutex_lock(&_mutex);
-        Student* s = findStudentById(id);
+        //Student* s = findStudentById(id);
+        Student* s = &((findNodeById(id))->data);
         if (s == nullptr) {
             lg(ERROR, "Student modify failed: id [%s] not found", id.c_str());
             pthread_mutex_unlock(&_mutex);
             return false;
         }
+        //std::cout << "ptr != nullptr" << std::endl;
         // 修改姓名
         if (!newName.empty()) {
             s->name = newName;
         }
+        //std::cout << "name mv success" << std::endl;
         // 修改成绩
         if (newScore != -1) {
             s->score = newScore;
         }
+        //std::cout << "score mv success" << std::endl;
         // 保存到文件
         saveToBinFile(BIN_FILE);
         lg(INFO, "Student info modified successfully: id [%s], name [%s], score [%.2f]", s->id.c_str(), s->name.c_str(), s->score);

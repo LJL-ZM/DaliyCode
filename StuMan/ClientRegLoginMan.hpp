@@ -32,6 +32,7 @@
 
 void menuOpRegistAndLogin()
 {
+    printf("*****************************************************************\n");
     printf("****      please chose a op, user_regist or user_login?      ****\n");
     printf("****    12 : user_regist                  13 : user_login    ****\n");
     printf("*****************************************************************\n");
@@ -39,6 +40,7 @@ void menuOpRegistAndLogin()
 
 void menuAboutRole()
 {
+    printf("*****************************************************************\n");
     printf("****      please chose a role, teacher or student?           ****\n");
     printf("****     1 : student                  2 : teacher            ****\n");
     printf("*****************************************************************\n");

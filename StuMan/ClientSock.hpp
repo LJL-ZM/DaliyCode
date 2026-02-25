@@ -138,6 +138,7 @@ void creatAndSendReq(Sock socket, const std::string &stu_name, const std::string
     StuRequest req(op_type, order, stu_name, id, score);
     string info, package;
     req.Serialize(info);
+    //cout << info << endl;
     package = Encode(info);
     socket.Write(package);
 }

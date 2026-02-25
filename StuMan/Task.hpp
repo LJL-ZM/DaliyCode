@@ -181,9 +181,11 @@ public:
                 else
                 {
                     // 修改学生失败
-                    meg = "modefy fail, target student dose not exist!";
+                    meg = "modify fail, target student dose not exist!";
                     info = "";
                 }
+                //TODO
+                std::cout << "mv success--task" << std::endl;
                 break;
             }
             case OP_QUERY_STUDENT:
@@ -220,7 +222,7 @@ public:
                 if (!all_students.empty())
                 {
                     // 接收vector并且转为string
-                    meg = "there are " + to_string(all_students.size()) + "students in the system!";
+                    meg = "there are " + to_string(all_students.size()) + " students in the system!";
                     for (auto e : all_students)
                     {
                         info += e.id;
@@ -287,14 +289,14 @@ public:
                     snprintf(avg_buf, sizeof(avg_buf), "%.2f", avgScore);
                     snprintf(max_buf, sizeof(max_buf), "%.2f", maxScore);
                     snprintf(min_buf, sizeof(min_buf), "%.2f", minScore);
-                    info += std::to_string(totalCount) + " ";
-                    info += avg_buf;
+                    info += std::string("total    :") + std::to_string(totalCount) + " ";
+                    info += std::string("avg      :") + avg_buf;
                     info += " ";
-                    info += max_buf;
+                    info += std::string("max      :") + max_buf;
                     info += " ";
-                    info += std::to_string(excellent);
+                    info += std::string("exc_cnt  :") + std::to_string(excellent);
                     info += " ";
-                    info += std::to_string(fail);
+                    info += std::string("fail_cnt :") + std::to_string(fail);
                     info += '\n';
                 }
                 else
