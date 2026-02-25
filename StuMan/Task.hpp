@@ -282,6 +282,7 @@ public:
                 float avgScore, maxScore, minScore;
                 if (Manager.scoreStatistics(totalCount, avgScore, maxScore, minScore, excellent, fail))
                 {
+                    //TODO
                     char avg_buf[32], max_buf[32], min_buf[32];
                     snprintf(avg_buf, sizeof(avg_buf), "%.2f", avgScore);
                     snprintf(max_buf, sizeof(max_buf), "%.2f", maxScore);
@@ -368,7 +369,9 @@ public:
                     meg = "login success!";
                     info = "";
                     confirm_code = 1;//成功登录
-                    permission = std::stoi(_req._role);//返回当前登录者权限
+                    //permission = std::stoi(string(_req._role));//返回当前登录者权限
+                    permission = RegLogMan.getPermission(_clientip, _req._user_name);
+                    // cout << permission;
                 }
                 break;
             }

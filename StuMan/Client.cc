@@ -6,11 +6,9 @@
 #include <sys/socket.h>
 #include <sys/types.h>
 #include <arpa/inet.h>
+#include <limits>
 #include "Protocol.hpp"
-
-#define KEY string("i am manager")
-#define SERVER_IP inet_addr("43.138.32.230")
-#define SERVER_PORT htons(8888)
+#include "ClientRegLoginMan.hpp"
 
 // 操作类型定义
 #define OP_ADD_STUDENT 1   // 添加学生
@@ -25,86 +23,14 @@
 #define OP_REGISTER 12     // 注册
 #define OP_LOGIN 13        // 登录
 
-// 权限身份定义
-#define ROLE_STU 1 // 学生
-#define ROLE_TEA 2 // 老师
-#define ROLE_MAN 3 // 管理员
-
-// 错误枚举
-enum NET_ERR
-{
-    SOCKET_ERR,
-    CONNECT_ERR
-};
-
+#define id_size 10
 using namespace std;
-
-class Sock
-{
-public:
-    Sock() {};
-
-    void Socket()
-    {
-        socketfd = socket(AF_INET, SOCK_STREAM, 0);
-        if (socketfd < 0)
-        {
-            printf("socket err : %s\n", strerror(errno));
-            exit(SOCKET_ERR);
-        }
-    }
-
-    void Connect()
-    {
-        sockaddr_in server;
-        memset(&server, 0, sizeof(server));
-        server.sin_addr.s_addr = SERVER_IP;
-        server.sin_family = AF_INET;
-        server.sin_port = SERVER_PORT;
-        int connect_ret = connect(socketfd, (const sockaddr *)(&server), sizeof(server));
-        if (connect_ret == -1)
-        {
-            printf("connect err : %s\n", strerror(errno));
-            exit(CONNECT_ERR);
-        }
-    }
-    bool Write(const string &info)
-    {
-        int write_bytes = write(socketfd, info.c_str(), info.size());
-        if (write_bytes <= 0)
-        {
-            return false;
-        }
-        return true;
-    }
-    void Close()
-    {
-        close(socketfd);
-    }
-    int Read(string &info)
-    {
-        char read_buf[10240];
-        int read_bytes = read(socketfd, read_buf, sizeof(read_buf));
-        if (read_bytes < 0)
-        {
-            return -1;
-        }
-        if (read_bytes == 0)
-        {
-            return 0;
-        }
-        info = read_buf;
-        return 1;
-    }
-
-private:
-    int socketfd;
-};
 
 void menuOpStudent()
 {
     printf("****************************************************************\n");
-    printf("**** 1 : add_student               2 : del_student  ************\n");
+    printf("****            please chose a op you will do               ****\n");
+    printf("**** 1 : add_student               2 : del_student_by_id    ****\n");
     printf("**** 3 : mod_student_by_id         4 : find_student_by_id ******\n");
     printf("**** 5 : get_all_student           6 : sort_students_by_score **\n");
     printf("**** 7 : sort_students_by_id       8 : statistics_score ********\n");
@@ -112,139 +38,83 @@ void menuOpStudent()
     printf("****************************************************************\n");
 }
 
-void menuOpRegistAndLogin()
+void menuOpSort()
 {
-    printf("****      please chose a op, user_regist or user_login?      ****\n");
-    printf("****    12 : user_regist                  13 : user_login    ****\n");
-    printf("*****************************************************************\n");
+    printf("****************************************************************\n");
+    printf("***** 0 : sort in ascending        1 : sort in decending    ****\n");
+    printf("****************************************************************\n");
 }
 
-void menuAboutRole()
+void resetCin(bool ignore_newline = false)
 {
-    printf("****      please chose a role, teacher or student?           ****\n");
-    printf("****     1 : student                  2 : teacher            ****\n");
-    printf("*****************************************************************\n");
+    cin.clear(); 
+    if (ignore_newline) {
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    }
 }
 
-int getOp()
+bool checkStuName(std::string &name)
 {
-    int op;
-    cin >> op;
-    return op;
-}
-
-bool checkUsername(string &name)
-{
-    cin >> name;
-    int flag = 0;
-    if (!(name.size() >= 6 && name.size() <= 18))
+    resetCin();
+    std::getline(std::cin, name);
+    if (name.empty())
     {
+        printf("Invalid name (cannot be empty)!\n");
         return false;
     }
     for (auto e : name)
     {
         if (!((e >= 'a' && e <= 'z') || (e >= 'A' && e <= 'Z')))
         {
+            printf("Invalid name (only letters allowed)!\n");
             return false;
         }
     }
     return true;
 }
-bool checkPassword(string password)
+
+bool checkStuScore(double &score)
 {
-    cin >> password;
-    int flag = 0;
-    if (!(password.size() >= 6 && password.size() <= 18))
+    resetCin(); 
+    if (!(cin >> score))
     {
+        printf("Invalid score (must be number)!\n");
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         return false;
     }
-    for (auto e : password)
+    if (score < 0 || score > 100)
+    {
+        printf("Invalid score (must be 0-100)!\n");
+        cin.ignore(1, '\n'); 
+        return false;
+    }
+    cin.ignore(1, '\n'); 
+    return true;
+}
+
+bool checkStuId(std::string &id)
+{
+    resetCin();
+    std::cin >> id;  
+    if (id.size() != id_size)
+    {
+        printf("Invalid id (size must be %d)\n", id_size);
+        return false;
+    }
+    for (auto e : id)
     {
         if (!(e >= '0' && e <= '9'))
-        {
             return false;
-        }
     }
     return true;
-}
-bool checkRole(int &role)
-{
-    menuAboutRole();
-    cin >> role;
-    if (role != ROLE_STU && role != ROLE_TEA && role != ROLE_MAN)
-    {
-        return false;
-    }
-    return true;
-}
-bool checkMan(int role)
-{
-    if (role == ROLE_MAN)
-    {
-        printf("if you are manager,please enter the key@");
-        fflush(stdout);
-        string key;
-        cin.ignore();
-        getline(cin, key);
-        if (key != KEY)
-        {
-            return false;
-        }
-    }
-    return true;
-}
-void creatAndSendReq(Sock socket, const string &name, const string &password, const string& op_type,  int role)
-{
-    RegLoginRequest req(name, password, role, op_type);
-    string info, package;
-    req.Serialize(info);
-    package = Encode(info);
-    socket.Write(package);
-}
-Sock getSock()
-{
-    Sock socket;
-    socket.Socket();
-    socket.Connect();
-    return socket;
-}
-const response ReceiveAndDecode(Sock socket, string& package, string& info, bool& ret_code)
-{
-    //cout << package << endl;
-    switch (socket.Read(package))
-    {
-    case -1:
-        printf("read fail\n");
-        socket.Close();
-        ret_code = false;
-        break;
-    case 0:
-        printf("server refuse\n");
-        socket.Close();
-        ret_code = false;
-        break;
-    default:
-        break;
-    }
-    // 反序列化答复
-    // cout << info << endl;
-    //cout << package << endl;
-    if (!Decode(package, info))
-    {
-        printf("response error\n");
-        ret_code = false;
-    }
-    //cout << info << endl;
-    ret_code = true;
-    return response(info);
 }
 
 int main()
 {
     // 选择登录/注册？
+    int role = 0;
     while (true)
     {
-        menuOpRegistAndLogin();
         int rl_op = getOp();
         if (rl_op != OP_REGISTER && rl_op != OP_LOGIN)
         {
@@ -253,61 +123,176 @@ int main()
         if (rl_op == OP_REGISTER)
         {
             // 注册
-            string name, password;
-            int role;
-            printf("Please enter your username,Username length must be between 6 and 18 characters,only a-z and A-Z.\n");
-            if (!checkUsername(name))
+            bool reg_ret = registe();
+            if (!reg_ret)
             {
-                printf("Invalid username!\n");
                 continue;
             }
-            // 合法的用户名
-            printf("set a password,Password length must be between 6 and 18 characters and contain only numbers.\n");
-            if (!checkPassword(password))
+            // 注册成功
+        }
+        else if (rl_op == OP_LOGIN)
+        {
+            // 登录
+            bool login_ret = login(role);
+            if (!login_ret)
             {
-                printf("Invalid password!\n");
                 continue;
             }
-            // 合法的密码
-            printf("please enter your role\n");
-            if (!checkRole(role))
+            else
             {
-                printf("Invalid role!\n");
-                continue;
+                break;
             }
-            // 是管理员吗？
-            if (!checkMan(role))
-            {
-                printf("you are not manager!\n");
-                continue;
-            }
-            // 网络
-            Sock socket = getSock();
-            // 构建name+password+role
-            // 发送请求
-            creatAndSendReq(socket, name, password, to_string(rl_op), role);
-            // 读responce
-            string package, info;
-            bool ret_code;
-            response reps = ReceiveAndDecode(socket, package, info, ret_code);
-            if(!ret_code){
-                continue;
-            }
-            //解析是否成功
-            cout << reps._meg << endl;
-            //cout << reps._confirm_code << endl;
-            if (reps._confirm_code != 1)
-            {
-                cout << "reps._confirm_code != 1" << endl;
-                continue;
-            }
+            // cout << role << endl;
         }
     }
-    // 注册：构建一个注册请求+发给服务端（注册必须合法（内容合法+注册成功））---if
+    // 登录成功
+    // 循环---打印菜单+本地测试权限+发起请求+读回复+打印结果
+    while (true)
+    {
+        menuOpStudent();
+        // 输入+构建请求
+        //  #define OP_SORT_SCORE 6    // 按成绩排序
+        //  #define OP_SORT_ID 7       // 按学号排序
+        int op_stu;
+        if (!(cin >> op_stu))
+        {
+            resetCin(); 
+            printf("Invaild op_stu! Please input number 1-9\n");
+            continue;
+        }
+        resetCin(true);
+        if (op_stu < 1 || op_stu > 9)
+        {
+            printf("Invaild op_stu!\n");
+            continue;
+        }
+        // **** 1 : add_student               2 : del_student  ************
+        // **** 3 : mod_student_by_id         4 : find_student_by_id ******
+        // **** 5 : get_all_student           6 : sort_students_by_score **
+        // **** 7 : sort_students_by_id       8 : statistics_score ********
+        // **** 9 : clear_all_students                                 ****
+        double score = 0;
+        std::string order = "-1", id = "", name = "";
+        switch (op_stu)
+        {
+        case 1:
+        {
+            printf("enter student name that you will add, the name only letters\n");
+            if (!checkStuName(name))
+            {
+                printf("Invalid name!\n");
+                resetCin();
+                continue;
+            }
+            printf("enter student score you will add, only 0-100\n");
+            if (!checkStuScore(score))
+            {
+                printf("Invalid score\n");
+                resetCin();
+                continue;
+            }
+            printf("enter student id you will add,only numbers and the size only %d\n", id_size);
+            if (!checkStuId(id))
+            {
+                printf("Invalid id\n");
+                resetCin();
+                continue;
+            }
+            break;
+        }
+        case 2:
+        {
+            printf("enter student id that you will del\n");
+            if (!checkStuId(id))
+            {
+                printf("Invalid id\n");
+                continue;
+            }
+            break;
+        }
+        case 3:
+        {
+            printf("enter student id that you will mod\n");
+            if (!checkStuId(id))
+            {
+                printf("Invalid id\n");
+                continue;
+            }
+            printf("enter student name that you will mod\n");
+            if (!checkStuName(name))
+            {
+                printf("Invalid name\n");
+                continue;
+            }
+            printf("enter student score that you will mod\n");
+            if (!checkStuScore(score))
+            {
+                printf("Invalid score\n");
+                continue;
+            }
+            break;
+        }
+        case 4:
+        {
+            printf("enter student id that you will find\n");
+            if (!checkStuId(id))
+            {
+                printf("Invalid id\n");
+                continue;
+            }
+            break;
+        }
+        case 5:
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                printf("loading...\n");
+                usleep(50000);
+            }
+            break;
+        }
+        case 6:
+        case 7:
+        {
+            menuOpSort();
+            int order_tmp = -1;
+            cin >> order_tmp;
+            if (order_tmp != 0 && order_tmp != 1)
+            {
+                printf("Invaild order!\n");
+                continue;
+            }
+            order = std::to_string(order_tmp);
+            break;
+        }
+        case 8:
+        {
+            for (int i = 1; i <= 5; i++)
+            {
+                printf("loading...\n");
+                usleep(50000);
+            }
+            break;
+        }
+        case 9:
+        {
 
-    // 登录：构建一个登录请求+发给服务端（登录请求必须合法（内容合法++密码正确+获取权限））
-
-    // 死循环---打印菜单+本地测试权限+发起请求+读回复+打印结果
-
+            break;
+        }
+        }
+        // 构建并发送请求
+        Sock socket = getSock();
+        creatAndSendReq(socket, name, id, std::to_string(op_stu), score, order);
+        // 接收并且解析答复
+        std::string package, info;
+        bool ret_code;
+        response reps = ReceiveAndDecode(socket, package, info, ret_code);
+        if (!ret_code)
+        {
+            continue;
+        }
+        cout << reps._meg << endl
+             << reps._info;
+    }
     return 0;
 }
