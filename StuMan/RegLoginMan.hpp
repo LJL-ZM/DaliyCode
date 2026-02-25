@@ -169,6 +169,12 @@ public:
         _is_init = true;
         pthread_mutex_unlock(&_static_creat_mutex);
     }
+    const int getPermission(const std::string& ip, const string& user_name) {
+        Lock();
+        const std::string& key = genKey(ip, user_name);
+        Unlock();
+        return std::stoi(_userInfo[key]._role);
+    }
     // 注册
     int Register(const std::string& ip, 
                  const std::string& username, 

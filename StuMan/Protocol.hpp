@@ -67,6 +67,15 @@ public:
 class StuRequest : public BaseRequest
 {
 public:
+    StuRequest(){}
+    StuRequest(std::string op_type, std::string order, std::string name, std::string id, double score)
+    :_order(order)
+    ,_name(name)
+    ,_id(id)
+    ,_score(score)
+    {
+        _op_type = op_type;
+    }
     // 序列化
     bool Serialize(std::string &out)
     {
@@ -101,7 +110,7 @@ public:
     // virtual bool DeSerialize(const std::string &in) = 0;
     // virtual int GetOp() = 0;
     // std::string _op_type;
-    std::string _order;
+    std::string _order;//排序的时候的升降序
     std::string _name;
     std::string _id;
     double _score;
@@ -142,7 +151,6 @@ public:
     }
 
     int GetOp() const{
-        //TODO:注册登录逻辑问题解决
         return std::stoi(_op_type);
     }
     // virtual ~BaseRequest() = 0;
