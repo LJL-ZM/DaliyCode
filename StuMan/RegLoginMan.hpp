@@ -156,6 +156,7 @@ public:
         pthread_mutex_lock(&_static_creat_mutex);
         if(_is_init){
             pthread_mutex_unlock(&_static_creat_mutex);
+            return;
         }
         int ret = pthread_mutex_init(&_mutex, nullptr);
         if (ret != 0) {

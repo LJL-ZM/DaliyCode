@@ -1,0 +1,48 @@
+[INFO][2026y2m26d 12:55:2]load 2 users success
+[INFO][2026y2m26d 12:55:2]RegLogMan init success!
+[INFO][2026y2m26d 12:55:2]Student manager module initialized successfully
+[INFO][2026y2m26d 12:55:2]load 8 students success
+[INFO][2026y2m26d 12:55:2]StuManServer init success...
+[INFO][2026y2m26d 12:55:2]server init success!
+[INFO][2026y2m26d 12:55:2]server is running!
+[INFO][2026y2m26d 12:55:34]get a new link [43.138.32.230:48700]
+[INFO][2026y2m26d 12:55:34]login success: liujialong@43.138.32.230
+[INFO][2026y2m26d 12:55:38]get a new link [43.138.32.230:48712]
+[INFO][2026y2m26d 12:56:25]get a new link [43.138.32.230:52722]
+[INFO][2026y2m26d 12:56:25]Saved 8 students to binary file: [./store/studentBin.dat]
+[INFO][2026y2m26d 12:56:25]Student info modified successfully: id [2400413165], name [yanglifang], score [10.00]
+[INFO][2026y2m26d 12:56:46]get a new link [43.138.32.230:44230]
+[INFO][2026y2m26d 12:56:55]get a new link [43.138.32.230:37884]
+[INFO][2026y2m26d 12:56:55]Saved 8 students to binary file: [./store/studentBin.dat]
+[INFO][2026y2m26d 12:56:55]Score sort completed: descending order
+[INFO][2026y2m26d 12:57:0]get a new link [43.138.32.230:35606]
+[INFO][2026y2m26d 12:57:6]get a new link [43.138.32.230:35618]
+[INFO][2026y2m26d 12:57:6]Score statistics completed: total 8, avg 88.75, max 100.00, min 10.00, excellent 7, fail 1
+[INFO][2026y2m26d 13:6:35]load 2 users success
+[INFO][2026y2m26d 13:6:35]RegLogMan init success!
+[INFO][2026y2m26d 13:6:35]Student manager module initialized successfully
+[INFO][2026y2m26d 13:6:35]load 8 students success
+[INFO][2026y2m26d 13:6:35]StuManServer init success...
+[INFO][2026y2m26d 13:6:35]server init success!
+[INFO][2026y2m26d 13:6:35]server is running!
+[INFO][2026y2m26d 13:7:31]get a new link [127.0.0.1:54906]
+[WARN][2026y2m26d 13:7:38]Decode fail in community with [127.0.0.1:54906], err str:Success
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m26d 13:8:2]get a new link [43.138.32.230:53146]
+[INFO][2026y2m26d 13:8:2]login success: liujialong@43.138.32.230
+[INFO][2026y2m26d 13:8:7]get a new link [43.138.32.230:53154]
+[INFO][2026y2m26d 13:8:20]get a new link [127.0.0.1:47810]
+[WARN][2026y2m26d 13:8:38]Decode fail in community with [127.0.0.1:47810], err str:Success
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m26d 13:11:25]load 2 users success
+[INFO][2026y2m26d 13:11:25]RegLogMan init success!
+[INFO][2026y2m26d 13:11:25]Student manager module initialized successfully
+[INFO][2026y2m26d 13:11:25]load 8 students success
+[INFO][2026y2m26d 13:11:25]StuManServer init success...
+[INFO][2026y2m26d 13:11:25]server init success!
+[INFO][2026y2m26d 13:11:25]server is running!
+[INFO][2026y2m26d 13:11:28]get a new link [127.0.0.1:39544]

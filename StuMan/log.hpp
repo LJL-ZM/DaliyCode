@@ -110,4 +110,5 @@ public:
     } 
 private:
     int _Print;
-}lg;
+};
+Log lg(1);
