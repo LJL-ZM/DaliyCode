@@ -109,3 +109,35 @@
 71
 {"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
 
+[INFO][2026y2m27d 0:13:49]load 9 users success
+[INFO][2026y2m27d 0:13:49]RegLogMan init success!
+[INFO][2026y2m27d 0:13:49]Student manager module initialized successfully
+[INFO][2026y2m27d 0:13:49]load 8 students success
+[INFO][2026y2m27d 0:13:49]StuManServer init success...
+[INFO][2026y2m27d 0:13:49]server init success!
+[INFO][2026y2m27d 0:13:49]server is running!
+[INFO][2026y2m27d 0:43:51]get a new link [111.18.49.216:4576]
+[WARN][2026y2m27d 0:43:51]register fail: leiting@111.18.49.216 already exist
+[INFO][2026y2m27d 0:44:7]get a new link [111.18.49.216:4595]
+[INFO][2026y2m27d 0:44:7]login success: leiting@111.18.49.216
+[INFO][2026y2m27d 0:44:10]get a new link [111.18.49.216:4604]
+[WARN][2026y2m27d 0:57:28]file not exist, create new
+[INFO][2026y2m27d 0:57:28]save 0 users success
+[INFO][2026y2m27d 0:57:28]RegLogMan init success!
+[INFO][2026y2m27d 0:57:28]Student manager module initialized successfully
+[INFO][2026y2m27d 0:57:28]load 0 students success
+[INFO][2026y2m27d 0:57:28]StuManServer init success...
+[INFO][2026y2m27d 0:57:28]server init success!
+[INFO][2026y2m27d 0:57:28]server is running!
+[INFO][2026y2m27d 0:58:0]get a new link [111.18.49.216:4568]
+[INFO][2026y2m27d 0:58:0]save 1 users success
+[INFO][2026y2m27d 0:58:0]register success: liujialong@111.18.49.216
+[INFO][2026y2m27d 1:0:0]get a new link [111.18.49.216:4543]
+[WARN][2026y2m27d 1:0:0]register fail: liujialong@111.18.49.216 already exist
+[INFO][2026y2m27d 1:0:30]get a new link [111.18.49.216:4571]
+[INFO][2026y2m27d 1:0:30]login success: liujialong@111.18.49.216
+[INFO][2026y2m27d 1:0:32]get a new link [111.18.49.216:4572]
+[INFO][2026y2m27d 1:0:46]get a new link [111.18.49.216:4573]
+[INFO][2026y2m27d 1:0:46]Saved 1 students to binary file: [./store/studentBin.dat]
+[INFO][2026y2m27d 1:0:46]Student info inserted successfully: id [2400413163], name [liujialong], score [100.00]
+[INFO][2026y2m27d 1:0:49]get a new link [111.18.49.216:4574]
