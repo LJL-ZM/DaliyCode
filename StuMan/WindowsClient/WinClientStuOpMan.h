@@ -3,23 +3,24 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
+#include <Windows.h>
 #include <string>
 #include <limits>
-#include "Protocol.hpp"
-#include "ClientSock.hpp"
+#include "WinProtocol.h"
+#include "WinClientSock.h"
 
-// 操作类型定义
-#define OP_ADD_STUDENT 1   // 添加学生
-#define OP_DEL_STUDENT 2   // 删除学生
-#define OP_MOD_STUDENT 3   // 修改学生
-#define OP_QUERY_STUDENT 4 // 按ID查询
-#define OP_GET_ALL 5       // 获取所有学生
-#define OP_SORT_SCORE 6    // 按成绩排序
-#define OP_SORT_ID 7       // 按学号排序
-#define OP_STATISTIC 8     // 成绩统计
-#define OP_CLEAR_ALL 9     // 清空所有
-#define OP_REGISTER 12     // 注册
-#define OP_LOGIN 13        // 登录
+
+#define OP_ADD_STUDENT 1   
+#define OP_DEL_STUDENT 2   
+#define OP_MOD_STUDENT 3   
+#define OP_QUERY_STUDENT 4 
+#define OP_GET_ALL 5       
+#define OP_SORT_SCORE 6    
+#define OP_SORT_ID 7       
+#define OP_STATISTIC 8     
+#define OP_CLEAR_ALL 9     
+#define OP_REGISTER 12     
+#define OP_LOGIN 13        
 
 #define id_size 10
 
@@ -46,17 +47,17 @@ void menuOpSort()
 
 void resetCin()
 {
-    cin.clear(); 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    std::cin.clear();
+    std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
 }
 
-bool checkStuName(std::string &name)
+bool checkStuName(std::string& name)
 {
     name.clear();
-    while (!(cin >> name)) 
+    while (!(std::cin >> name))
     {
         printf("Invalid input! Please enter letters only: ");
-        resetCin(); 
+        resetCin();
     }
     if (name.empty())
     {
@@ -74,15 +75,15 @@ bool checkStuName(std::string &name)
     return true;
 }
 
-bool checkStuScore(double &score)
+bool checkStuScore(double& score)
 {
-    score = -1; 
-    if (!(cin >> score))
+    score = -1;
+    if (!(std::cin >> score))
     {
         printf("Invalid score (must be number)!\n");
         resetCin();
         return false;
-    }   
+    }
     if (score < 0 || score > 100)
     {
         printf("Invalid score (must be 0-100)!\n");
@@ -91,11 +92,11 @@ bool checkStuScore(double &score)
     return true;
 }
 
-bool checkStuId(std::string &id)
+bool checkStuId(std::string& id)
 {
     id.clear();
-    cin >> id;
-    resetCin(); 
+    std::cin >> id;
+    resetCin();
     if (id.size() != id_size)
     {
         printf("Invalid id (size must be %d)\n", id_size);
@@ -103,7 +104,7 @@ bool checkStuId(std::string &id)
     }
     for (auto e : id)
     {
-        if (!(e >= '0' && e <= '9')){
+        if (!(e >= '0' && e <= '9')) {
             return false;
         }
     }
@@ -113,9 +114,8 @@ bool checkStuId(std::string &id)
 bool stuOp(int role)
 {
     menuOpStudent();
-    // 输入+构建请求
     int op_stu;
-    if (!(cin >> op_stu))
+    if (!(std::cin >> op_stu))
     {
         resetCin();
         printf("Invaild op_stu! Please input number 1-9\n");
@@ -217,7 +217,7 @@ bool stuOp(int role)
         for (int i = 1; i <= 5; i++)
         {
             printf("loading...\n");
-            Sleep(50);
+            Sleep(5);
         }
         break;
     }
@@ -226,7 +226,7 @@ bool stuOp(int role)
     {
         menuOpSort();
         int order_tmp = -1;
-        cin >> order_tmp;
+        std::cin >> order_tmp;
         if (order_tmp != 0 && order_tmp != 1)
         {
             printf("Invaild order!\n");
@@ -240,7 +240,7 @@ bool stuOp(int role)
         for (int i = 1; i <= 5; i++)
         {
             printf("loading...\n");
-            Sleep(50);
+            Sleep(5);
         }
         break;
     }
@@ -254,10 +254,8 @@ bool stuOp(int role)
         break;
     }
     }
-    // 构建并发送请求
     Sock socket = getSock();
     creatAndSendReq(socket, name, id, std::to_string(op_stu), score, order);
-    // 接收并且解析答复
     std::string package, info;
     bool ret_code;
     response reps = ReceiveAndDecode(socket, package, info, ret_code);
@@ -265,7 +263,7 @@ bool stuOp(int role)
     {
         return false;
     }
-    cout << reps._meg << endl
-         << reps._info;
+    std::cout << reps._meg << std::endl
+        << reps._info;
     return true;
 }

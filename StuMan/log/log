@@ -54,3 +54,58 @@
 [INFO][2026y2m26d 18:42:15]server init success!
 [INFO][2026y2m26d 18:42:15]server is running!
 [INFO][2026y2m26d 18:42:22]get a new link [43.138.32.230:42644]
+[INFO][2026y2m26d 18:43:53]get a new link [43.138.32.230:53872]
+[INFO][2026y2m26d 18:46:53]load 3 users success
+[INFO][2026y2m26d 18:46:53]RegLogMan init success!
+[INFO][2026y2m26d 18:46:53]Student manager module initialized successfully
+[INFO][2026y2m26d 18:46:53]load 8 students success
+[INFO][2026y2m26d 18:46:53]StuManServer init success...
+[INFO][2026y2m26d 18:46:53]server init success!
+[INFO][2026y2m26d 18:46:53]server is running!
+[INFO][2026y2m26d 18:48:26]get a new link [43.138.32.230:50870]
+[INFO][2026y2m26d 19:3:25]get a new link [43.138.32.230:37880]
+[INFO][2026y2m26d 19:24:13]get a new link [43.138.32.230:58036]
+[INFO][2026y2m26d 19:30:42]get a new link [43.138.32.230:50916]
+[INFO][2026y2m26d 19:30:42]login success: liujialong@43.138.32.230
+[INFO][2026y2m26d 19:30:45]get a new link [43.138.32.230:50928]
+[INFO][2026y2m26d 19:30:55]get a new link [43.138.32.230:42614]
+[INFO][2026y2m26d 19:30:55]Score statistics completed: total 8, avg 88.75, max 100.00, min 10.00, excellent 7, fail 1
+[INFO][2026y2m26d 19:36:9]get a new link [43.138.32.230:43202]
+[INFO][2026y2m26d 19:36:42]get a new link [87.121.84.85:37604]
+[WARN][2026y2m26d 19:36:42]Decode fail in community with [87.121.84.85:37604]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m26d 19:46:26]get a new link [43.138.32.230:46836]
+[INFO][2026y2m26d 19:46:57]get a new link [43.138.32.230:38824]
+[INFO][2026y2m26d 19:46:57]Saved 8 students to binary file: [./store/studentBin.dat]
+[INFO][2026y2m26d 19:46:57]Student info modified successfully: id [2400413170], name [liudongxing], score [100.00]
+[INFO][2026y2m26d 19:47:0]get a new link [43.138.32.230:47652]
+[INFO][2026y2m26d 19:56:27]get a new link [43.138.32.230:50138]
+[INFO][2026y2m26d 20:10:55]get a new link [43.138.32.230:58544]
+[INFO][2026y2m26d 20:13:59]get a new link [43.138.32.230:35890]
+[INFO][2026y2m26d 20:13:59]login success: liujialong@43.138.32.230
+[INFO][2026y2m26d 20:23:17]get a new link [43.138.32.230:33544]
+[INFO][2026y2m26d 21:17:17]get a new link [43.138.32.230:53458]
+[INFO][2026y2m26d 22:11:18]get a new link [43.138.32.230:59630]
+[INFO][2026y2m26d 22:11:18]login success: liujialong@43.138.32.230
+[INFO][2026y2m26d 22:11:21]get a new link [43.138.32.230:46022]
+[INFO][2026y2m26d 22:12:3]get a new link [127.0.0.1:42834]
+[WARN][2026y2m26d 22:12:8]Decode fail in community with [127.0.0.1:42834]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m26d 23:16:19]get a new link [20.163.2.151:33756]
+[ERROR][2026y2m26d 23:16:29]read fail with [20.163.2.151:33756]
+[INFO][2026y2m26d 23:16:29]get a new link [20.163.2.151:60570]
+[WARN][2026y2m26d 23:16:29]Decode fail in community with [20.163.2.151:60570]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m26d 23:37:4]get a new link [111.18.49.216:4520]
+[WARN][2026y2m26d 23:37:4]login fail: liujialong@111.18.49.216 not exist
+[INFO][2026y2m26d 23:37:38]get a new link [87.121.84.85:43290]
+[WARN][2026y2m26d 23:37:38]Decode fail in community with [87.121.84.85:43290]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+

@@ -4,28 +4,28 @@
 #include <cstdio>
 #include <cstring>
 #include <string>
-#include "Protocol.hpp"
-#include "ClientSock.hpp"
+#include "WinProtocol.h"
+#include "WinClientSock.h"
 
-#define KEY string("i am manager")
+#define KEY std::string("i am manager")
 
-// 操作类型定义
-#define OP_ADD_STUDENT 1   // 添加学生
-#define OP_DEL_STUDENT 2   // 删除学生
-#define OP_MOD_STUDENT 3   // 修改学生
-#define OP_QUERY_STUDENT 4 // 按ID查询
-#define OP_GET_ALL 5       // 获取所有学生
-#define OP_SORT_SCORE 6    // 按成绩排序
-#define OP_SORT_ID 7       // 按学号排序
-#define OP_STATISTIC 8     // 成绩统计
-#define OP_CLEAR_ALL 9     // 清空所有
-#define OP_REGISTER 12     // 注册
-#define OP_LOGIN 13        // 登录
 
-// 权限身份定义
-#define ROLE_STU 1 // 学生
-#define ROLE_TEA 2 // 老师
-#define ROLE_MAN 3 // 管理员
+#define OP_ADD_STUDENT 1   
+#define OP_DEL_STUDENT 2   
+#define OP_MOD_STUDENT 3   
+#define OP_QUERY_STUDENT 4 
+#define OP_GET_ALL 5       
+#define OP_SORT_SCORE 6    
+#define OP_SORT_ID 7       
+#define OP_STATISTIC 8     
+#define OP_CLEAR_ALL 9     
+#define OP_REGISTER 12     
+#define OP_LOGIN 13        
+
+
+#define ROLE_STU 1 
+#define ROLE_TEA 2 
+#define ROLE_MAN 3 
 
 void menuOpRegistAndLogin()
 {
@@ -47,13 +47,13 @@ int getOp()
 {
     menuOpRegistAndLogin();
     int op;
-    cin >> op;
+    std::cin >> op;
     return op;
 }
 
-bool checkUsername(std::string &name)
+bool checkUsername(std::string& name)
 {
-    cin >> name;
+   std::cin >> name;
     int flag = 0;
     if (!(name.size() >= 6 && name.size() <= 18))
     {
@@ -70,7 +70,7 @@ bool checkUsername(std::string &name)
 }
 bool checkPassword(std::string password)
 {
-    cin >> password;
+    std::cin >> password;
     int flag = 0;
     if (!(password.size() >= 6 && password.size() <= 18))
     {
@@ -85,10 +85,10 @@ bool checkPassword(std::string password)
     }
     return true;
 }
-bool checkRole(int &role)
+bool checkRole(int& role)
 {
     menuAboutRole();
-    cin >> role;
+    std::cin >> role;
     if (role != ROLE_STU && role != ROLE_TEA && role != ROLE_MAN)
     {
         return false;
@@ -102,8 +102,8 @@ bool checkMan(int role)
         printf("if you are manager,please enter the key@");
         fflush(stdout);
         std::string key;
-        cin.ignore();
-        getline(cin, key);
+        std::cin.ignore();
+        std::getline(std::cin, key);
         if (key != KEY)
         {
             return false;
@@ -122,31 +122,31 @@ bool registe()
         printf("Invalid username!\n");
         return false;
     }
-    // 合法的用户名
+
     printf("set a password,Password length must be between 6 and 18 characters and contain only numbers.\n");
     if (!checkPassword(password))
     {
         printf("Invalid password!\n");
         return false;
     }
-    // 合法的密码
+  
     printf("please enter your role\n");
     if (!checkRole(role))
     {
         printf("Invalid role!\n");
         return false;
     }
-    // 是管理员吗？
+
     if (!checkMan(role))
     {
         printf("you are not manager!\n");
         return false;
     }
-    // 网络
+  
     Sock socket = getSock();
-    // 构建name+password+role
-    // 发送请求
-    creatAndSendReq(socket, name, password, to_string(OP_REGISTER), role);
+    
+
+    creatAndSendReq(socket, name, password, std::to_string(OP_REGISTER), role);
     // 读responce
     std::string package, info;
     bool ret_code;
@@ -155,8 +155,11 @@ bool registe()
     {
         return false;
     }
-    // 解析是否成功
-    cout << reps._meg << endl;
+    //TODO
+
+
+    std::cout <<"msg:" << reps._meg << std::endl;
+    std::cout <<"confirm_code:" << reps._confirm_code << std::endl;
     if (reps._confirm_code != 1)
     {
         return false;
@@ -164,7 +167,7 @@ bool registe()
     return true;
 }
 
-bool login(int &role)
+bool login(int& role)
 {
     std::string name, password;
     printf("Please enter your username,Username length must be between 6 and 18 characters,only a-z and A-Z.\n");
@@ -173,19 +176,15 @@ bool login(int &role)
         printf("Invalid username!\n");
         return false;
     }
-    // 合法的用户名
+   
     printf("enter your password,Password length must be between 6 and 18 characters and contain only numbers.\n");
     if (!checkPassword(password))
     {
         printf("Invalid password!\n");
         return false;
     }
-    // 合法的密码
-    // 网络
     Sock socket = getSock();
-    // 构建name+password+role
-    // 发送请求
-    creatAndSendReq(socket, name, password, to_string(OP_LOGIN));
+    creatAndSendReq(socket, name, password, std::to_string(OP_LOGIN));
     // 读responce
     std::string package, info;
     bool ret_code;
@@ -194,8 +193,7 @@ bool login(int &role)
     {
         return false;
     }
-    // 解析是否成功
-    cout << reps._meg << endl;
+    std::cout << reps._meg << std::endl;
     if (reps._confirm_code != 1)
     {
         return false;
