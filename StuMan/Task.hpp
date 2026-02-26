@@ -73,7 +73,7 @@ public:
         int read_bytes = read(_socketfd, request_buf, sizeof(request_buf));
         if (read_bytes <= 3)
         {
-            lg(ERROR, "read fail with [%s:%d], err str:%s", _clientip.c_str(), _clientport, strerror(errno));
+            lg(ERROR, "read fail with [%s:%d]", _clientip.c_str(), _clientport);
             close(_socketfd);
             return false;
         }
@@ -83,7 +83,7 @@ public:
         {
             // 解码失败
             close(_socketfd);
-            lg(WARN, "Decode fail in community with [%s:%d], err str:%s", _clientip.c_str(), _clientport, strerror(errno));
+            lg(WARN, "Decode fail in community with [%s:%d]", _clientip.c_str(), _clientport);
             return false;
         }
         // 临时解析op，由此判断如何初始化req

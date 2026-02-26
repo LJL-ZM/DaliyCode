@@ -1,6 +1,7 @@
 #include <iostream>
 #include "StuManServer.hpp"
 #include "log.hpp"
+#include "Daemon.hpp"
 #include <stdexcept>
 using namespace std;
 bool serverStart(){
@@ -17,6 +18,7 @@ bool serverStart(){
 }
 int main()
 {
+    Daemon::getDaemon().Init();
     // StuManServer& server = StuManServer::getInstance();
     // server.Init();
     // server.Run();

@@ -46,3 +46,11 @@
 [INFO][2026y2m26d 13:11:25]server init success!
 [INFO][2026y2m26d 13:11:25]server is running!
 [INFO][2026y2m26d 13:11:28]get a new link [127.0.0.1:39544]
+[INFO][2026y2m26d 18:42:15]load 3 users success
+[INFO][2026y2m26d 18:42:15]RegLogMan init success!
+[INFO][2026y2m26d 18:42:15]Student manager module initialized successfully
+[INFO][2026y2m26d 18:42:15]load 8 students success
+[INFO][2026y2m26d 18:42:15]StuManServer init success...
+[INFO][2026y2m26d 18:42:15]server init success!
+[INFO][2026y2m26d 18:42:15]server is running!
+[INFO][2026y2m26d 18:42:22]get a new link [43.138.32.230:42644]

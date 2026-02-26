@@ -28,7 +28,7 @@
 #include <string>
 #include <jsoncpp/json/json.h>
 #include "log.hpp"
-
+ 
 
 
 //解决stoi的异常问题
@@ -38,7 +38,7 @@ int safeStoi(const string& s){
         return -1;
     }
     for(auto e : s){
-        if(isdigit(e)){
+        if(!isdigit(e)){
             return -1;
         }
     }
