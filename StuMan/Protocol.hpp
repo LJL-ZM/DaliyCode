@@ -24,9 +24,33 @@
 #define ROLE_MAN 3         //管理员
 
 #include <iostream>
+#include <cctype>
 #include <string>
 #include <jsoncpp/json/json.h>
 #include "log.hpp"
+
+
+
+//解决stoi的异常问题
+//-1失败，其它成功
+int safeStoi(const string& s){
+    if(s.empty()){
+        return -1;
+    }
+    for(auto e : s){
+        if(isdigit(e)){
+            return -1;
+        }
+    }
+    try{
+        int ret = stoi(s);
+        return ret;
+    }
+    catch(const std::invalid_argument& e){
+        lg(ERROR, "stoi exception!");
+        return -1;
+    }
+}
 
 
 //加报头:len+\n+info+\n
@@ -47,8 +71,8 @@ bool Decode(std::string& package, std::string& info){
     std::size_t pos = package.find(protocol_sem);
     if(pos == std::string::npos) return false;
     std::string len_str = package.substr(0, pos);
-    std::size_t len = std::stoi(len_str);
-    if(len + len_str.size() + 2 > package.size()) return false;
+    int len = safeStoi(len_str);
+    if(len <= 0 || len + len_str.size() + 2 > package.size()) return false;
     info = package.substr(pos+1, len);
     package.erase(0, len + len_str.size() + 2);
     return true;
@@ -103,7 +127,7 @@ public:
         return true;
     }
     int GetOp() const{
-        return std::stoi(_op_type);
+        return safeStoi(_op_type);
     }
     // virtual ~BaseRequest() = 0;
     // virtual bool Serialize(std::string &out) = 0;
@@ -151,7 +175,7 @@ public:
     }
 
     int GetOp() const{
-        return std::stoi(_op_type);
+        return safeStoi(_op_type);
     }
     // virtual ~BaseRequest() = 0;
     // virtual bool Serialize(std::string &out) = 0;
@@ -209,3 +233,5 @@ public:
     int _confirm_code = -1;//登录注册时返回，0失败，1成功
     int _permission = -1;//1学生2老师3管理员
 };
+
+

@@ -71,7 +71,7 @@ public:
 
 
         int read_bytes = read(_socketfd, request_buf, sizeof(request_buf));
-        if (read_bytes <= 0)
+        if (read_bytes <= 3)
         {
             lg(ERROR, "read fail with [%s:%d], err str:%s", _clientip.c_str(), _clientport, strerror(errno));
             close(_socketfd);
@@ -98,7 +98,7 @@ public:
         }
         // 解析op成功，由此实例化req
         int op_type = -1;
-        op_type = std::stoi(root["_op_type"].asString());
+        op_type = safeStoi((root["_op_type"].asString()));
         if (op_type == -1)
         {
             close(_socketfd);
@@ -131,6 +131,9 @@ public:
         if (initTask())
         {
             int op = _req_ptr->GetOp();
+            if(op == -1){
+                lg(ERROR, "bad request, getop exception!");
+            }
             switch (op)
             {
             case OP_ADD_STUDENT:
@@ -247,7 +250,13 @@ public:
             {
                 auto &_req = static_cast<StuRequest &>(*_req_ptr);
                 Student st(_req._id, _req._name, _req._score);
-                int score_order = std::stoi(_req._order.c_str());
+                int score_order = safeStoi(_req._order.c_str());
+                if(score_order == -1){
+                    //出错
+                    lg(ERROR, "case OP_SORT_SCORE stoi exception!");
+                    meg = "bad request!";
+                    info = "";
+                }
                 if (Manager.sortByScore(score_order))
                 {
                     meg = "sort success!";
@@ -263,7 +272,13 @@ public:
             case OP_SORT_ID:{
                 auto &_req = static_cast<StuRequest &>(*_req_ptr);
                 Student st(_req._id, _req._name, _req._score);
-                int id_order = std::stoi(_req._order.c_str());
+                int id_order = safeStoi(_req._order.c_str());
+                if(id_order == -1){
+                    //出错
+                    lg(ERROR, "case OP_SORT_SCORE stoi exception!");
+                    meg = "bad request!";
+                    info = "";
+                }
                 if (Manager.sortById(id_order))
                 {
                     meg = "sort success!";
