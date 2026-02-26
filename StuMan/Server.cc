@@ -18,7 +18,7 @@ bool serverStart(){
 }
 int main()
 {
-    //Daemon::getDaemon().Init();
+    Daemon::getDaemon().Init();
     // StuManServer& server = StuManServer::getInstance();
     // server.Init();
     // server.Run();
