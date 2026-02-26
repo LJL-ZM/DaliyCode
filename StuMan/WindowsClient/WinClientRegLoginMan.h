@@ -158,8 +158,8 @@ bool registe()
     //TODO
 
 
-    std::cout <<"msg:" << reps._meg << std::endl;
-    std::cout <<"confirm_code:" << reps._confirm_code << std::endl;
+    /*std::cout <<"msg:" << reps._meg << std::endl;
+    std::cout <<"confirm_code:" << reps._confirm_code << std::endl;*/
     if (reps._confirm_code != 1)
     {
         return false;
