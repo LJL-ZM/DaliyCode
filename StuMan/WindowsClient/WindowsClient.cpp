@@ -1,12 +1,15 @@
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+
+
 #include <iostream>
 #include <cstdio>
 #include <cstring>
 #include <string>
 #include <limits>
-#include "Protocol.hpp"
-#include "ClientSock.hpp"
-#include "ClientRegLoginMan.hpp"
-#include "ClientStuOpMan.hpp"
+#include "WinProtocol.h"
+#include "WinClientSock.h"
+#include "WinClientRegLoginMan.h"
+#include "WinClientStuOpMan.h"
 
 using namespace std;
 
