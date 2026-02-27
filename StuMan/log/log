@@ -141,3 +141,556 @@
 [INFO][2026y2m27d 1:0:46]Saved 1 students to binary file: [./store/studentBin.dat]
 [INFO][2026y2m27d 1:0:46]Student info inserted successfully: id [2400413163], name [liujialong], score [100.00]
 [INFO][2026y2m27d 1:0:49]get a new link [111.18.49.216:4574]
+[INFO][2026y2m27d 1:4:42]load 1 users success
+[INFO][2026y2m27d 1:4:42]RegLogMan init success!
+[INFO][2026y2m27d 1:4:42]Student manager module initialized successfully
+[INFO][2026y2m27d 1:4:42]load 1 students success
+[INFO][2026y2m27d 1:4:42]StuManServer init success...
+[INFO][2026y2m27d 1:4:42]server init success!
+[INFO][2026y2m27d 1:4:42]server is running!
+[INFO][2026y2m27d 1:5:15]get a new link [111.18.49.216:4563]
+[INFO][2026y2m27d 1:5:15]login success: liujialong@111.18.49.216
+[INFO][2026y2m27d 1:5:17]get a new link [111.18.49.216:4564]
+[INFO][2026y2m27d 1:13:46]get a new link [111.18.49.216:7790]
+[INFO][2026y2m27d 1:13:46]save 2 users success
+[INFO][2026y2m27d 1:13:46]register success: zgangwen@111.18.49.216
+[INFO][2026y2m27d 1:20:27]load 2 users success
+[INFO][2026y2m27d 1:20:27]RegLogMan init success!
+[INFO][2026y2m27d 1:20:27]Student manager module initialized successfully
+[INFO][2026y2m27d 1:20:27]load 1 students success
+[INFO][2026y2m27d 1:20:27]StuManServer init success...
+[INFO][2026y2m27d 1:20:27]server init success!
+[INFO][2026y2m27d 1:20:27]server is running!
+[INFO][2026y2m27d 1:23:55]get a new link [111.18.49.216:4595]
+[INFO][2026y2m27d 1:23:55]save 3 users success
+[INFO][2026y2m27d 1:23:55]register success: niuaihua@111.18.49.216
+[INFO][2026y2m27d 1:24:12]get a new link [111.18.49.216:4600]
+[INFO][2026y2m27d 1:24:12]login success: niuaihua@111.18.49.216
+[INFO][2026y2m27d 1:24:16]get a new link [111.18.49.216:4482]
+[INFO][2026y2m27d 2:21:19]get a new link [204.76.203.51:59986]
+[WARN][2026y2m27d 2:21:20]Decode fail in community with [204.76.203.51:59986]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 2:21:21]get a new link [204.76.203.51:60026]
+[WARN][2026y2m27d 2:21:23]Decode fail in community with [204.76.203.51:60026]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 2:21:24]get a new link [221.197.252.22:31772]
+[ERROR][2026y2m27d 2:21:24]read fail with [221.197.252.22:31772]
+[INFO][2026y2m27d 2:21:24]get a new link [221.197.252.22:27846]
+[WARN][2026y2m27d 2:21:24]Decode fail in community with [221.197.252.22:27846]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 3:19:14]get a new link [121.43.119.114:50944]
+[WARN][2026y2m27d 3:19:14]Decode fail in community with [121.43.119.114:50944]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 3:19:14]get a new link [121.43.119.114:50948]
+[WARN][2026y2m27d 3:19:14]Decode fail in community with [121.43.119.114:50948]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 3:37:20]get a new link [130.12.182.185:65140]
+[WARN][2026y2m27d 3:37:21]Decode fail in community with [130.12.182.185:65140]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 3:57:28]get a new link [87.121.84.85:43832]
+[WARN][2026y2m27d 3:57:28]Decode fail in community with [87.121.84.85:43832]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 4:5:50]get a new link [8.219.209.185:48446]
+[WARN][2026y2m27d 4:5:50]Decode fail in community with [8.219.209.185:48446]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 4:6:17]get a new link [8.219.209.185:44584]
+[ERROR][2026y2m27d 4:6:17]read fail with [8.219.209.185:44584]
+[INFO][2026y2m27d 4:7:42]get a new link [8.219.209.185:57738]
+[WARN][2026y2m27d 4:7:42]Decode fail in community with [8.219.209.185:57738]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 5:12:3]get a new link [20.15.162.238:51454]
+[WARN][2026y2m27d 5:12:3]Decode fail in community with [20.15.162.238:51454]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 5:12:3]get a new link [20.15.162.238:51458]
+[WARN][2026y2m27d 5:12:3]Decode fail in community with [20.15.162.238:51458]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 5:15:18]get a new link [93.123.109.72:65449]
+[WARN][2026y2m27d 5:15:18]Decode fail in community with [93.123.109.72:65449]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 5:37:22]get a new link [79.124.59.86:63707]
+[WARN][2026y2m27d 5:37:22]Decode fail in community with [79.124.59.86:63707]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:41]get a new link [121.43.119.2:48448]
+[WARN][2026y2m27d 6:16:47]Decode fail in community with [121.43.119.2:48448]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:47]get a new link [121.43.119.2:48626]
+[WARN][2026y2m27d 6:16:47]Decode fail in community with [121.43.119.2:48626]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:47]get a new link [121.43.119.2:48628]
+[WARN][2026y2m27d 6:16:47]Decode fail in community with [121.43.119.2:48628]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:47]get a new link [121.43.119.2:48630]
+[WARN][2026y2m27d 6:16:47]Decode fail in community with [121.43.119.2:48630]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:47]get a new link [121.43.119.2:48632]
+[WARN][2026y2m27d 6:16:47]Decode fail in community with [121.43.119.2:48632]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:47]get a new link [121.43.119.2:48636]
+[WARN][2026y2m27d 6:16:47]Decode fail in community with [121.43.119.2:48636]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48638]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48638]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48640]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48640]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48642]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48642]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48644]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48644]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48646]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48646]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48652]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48652]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48654]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48654]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48658]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48658]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48660]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48660]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48662]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48662]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48666]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48666]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48670]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48670]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48682]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48682]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48692]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48692]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:48]get a new link [121.43.119.2:48694]
+[WARN][2026y2m27d 6:16:48]Decode fail in community with [121.43.119.2:48694]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48696]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48696]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48708]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48708]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48710]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48710]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48712]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48712]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48714]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48714]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48716]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48716]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48758]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48758]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48764]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48764]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:49]get a new link [121.43.119.2:48766]
+[WARN][2026y2m27d 6:16:49]Decode fail in community with [121.43.119.2:48766]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:16:53]get a new link [121.43.119.2:48834]
+[ERROR][2026y2m27d 6:17:3]read fail with [121.43.119.2:48834]
+[INFO][2026y2m27d 6:17:3]get a new link [121.43.119.2:49498]
+[WARN][2026y2m27d 6:17:3]Decode fail in community with [121.43.119.2:49498]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:17:3]get a new link [121.43.119.2:49500]
+[WARN][2026y2m27d 6:17:3]Decode fail in community with [121.43.119.2:49500]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:17:3]get a new link [121.43.119.2:966]
+[INFO][2026y2m27d 6:17:3]get a new link [121.43.119.2:49502]
+[WARN][2026y2m27d 6:17:3]Decode fail in community with [121.43.119.2:966]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[WARN][2026y2m27d 6:17:3]Decode fail in community with [121.43.119.2:49502]
+[INFO][2026y2m27d 6:17:3]get a new link [121.43.119.2:49504]
+[WARN][2026y2m27d 6:17:3]Decode fail in community with [121.43.119.2:49504]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:20:1]get a new link [204.76.203.51:42226]
+[WARN][2026y2m27d 6:20:2]Decode fail in community with [204.76.203.51:42226]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:20:3]get a new link [204.76.203.51:42260]
+[WARN][2026y2m27d 6:20:4]Decode fail in community with [204.76.203.51:42260]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:28:35]get a new link [112.124.9.226:49672]
+[WARN][2026y2m27d 6:28:35]Decode fail in community with [112.124.9.226:49672]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 6:28:35]get a new link [112.124.9.226:49704]
+[WARN][2026y2m27d 6:28:35]Decode fail in community with [112.124.9.226:49704]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 7:11:55]get a new link [162.142.125.217:51528]
+[ERROR][2026y2m27d 7:11:58]read fail with [162.142.125.217:51528]
+[INFO][2026y2m27d 7:11:58]get a new link [162.142.125.217:51540]
+[WARN][2026y2m27d 7:11:58]Decode fail in community with [162.142.125.217:51540]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 7:11:59]get a new link [162.142.125.217:51544]
+[WARN][2026y2m27d 7:12:2]Decode fail in community with [162.142.125.217:51544]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 7:12:3]get a new link [162.142.125.217:51562]
+[WARN][2026y2m27d 7:12:3]Decode fail in community with [162.142.125.217:51562]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 7:12:9]get a new link [162.142.125.217:3998]
+[WARN][2026y2m27d 7:12:9]Decode fail in community with [162.142.125.217:3998]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 7:12:14]get a new link [162.142.125.217:11672]
+[WARN][2026y2m27d 7:12:14]Decode fail in community with [162.142.125.217:11672]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 7:16:21]get a new link [220.196.160.151:20364]
+[WARN][2026y2m27d 7:16:21]Decode fail in community with [220.196.160.151:20364]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 7:59:30]get a new link [87.121.84.85:41454]
+[WARN][2026y2m27d 7:59:30]Decode fail in community with [87.121.84.85:41454]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 8:20:54]get a new link [180.101.245.246:50414]
+[WARN][2026y2m27d 8:20:54]Decode fail in community with [180.101.245.246:50414]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 8:20:56]get a new link [129.211.167.166:37728]
+[WARN][2026y2m27d 8:20:56]Decode fail in community with [129.211.167.166:37728]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 8:53:8]get a new link [20.169.104.49:45968]
+[WARN][2026y2m27d 8:53:8]Decode fail in community with [20.169.104.49:45968]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 8:53:8]get a new link [20.169.104.49:59838]
+[WARN][2026y2m27d 8:53:8]Decode fail in community with [20.169.104.49:59838]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 10:17:42]get a new link [204.76.203.51:55738]
+[WARN][2026y2m27d 10:17:42]Decode fail in community with [204.76.203.51:55738]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 10:17:44]get a new link [204.76.203.51:55796]
+[WARN][2026y2m27d 10:17:46]Decode fail in community with [204.76.203.51:55796]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 10:28:16]get a new link [111.18.50.51:6039]
+[WARN][2026y2m27d 10:28:16]login fail: liujialong@111.18.50.51 not exist
+[INFO][2026y2m27d 10:28:42]get a new link [111.18.50.51:6063]
+[INFO][2026y2m27d 10:28:42]save 4 users success
+[INFO][2026y2m27d 10:28:42]register success: liujialong@111.18.50.51
+[INFO][2026y2m27d 10:28:55]get a new link [111.18.50.51:6076]
+[INFO][2026y2m27d 10:28:55]login success: liujialong@111.18.50.51
+[INFO][2026y2m27d 10:28:58]get a new link [111.18.50.51:6077]
+[INFO][2026y2m27d 11:46:55]get a new link [147.185.132.64:62688]
+[WARN][2026y2m27d 11:46:55]Decode fail in community with [147.185.132.64:62688]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 11:46:55]get a new link [147.185.132.64:62690]
+[WARN][2026y2m27d 11:46:55]Decode fail in community with [147.185.132.64:62690]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 12:10:18]get a new link [87.121.84.85:42088]
+[WARN][2026y2m27d 12:10:18]Decode fail in community with [87.121.84.85:42088]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 12:12:31]get a new link [152.42.200.86:50832]
+[WARN][2026y2m27d 12:12:31]Decode fail in community with [152.42.200.86:50832]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 12:19:41]get a new link [185.107.80.93:60146]
+[WARN][2026y2m27d 12:19:41]Decode fail in community with [185.107.80.93:60146]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 12:19:42]get a new link [185.107.80.93:60152]
+[WARN][2026y2m27d 12:19:42]Decode fail in community with [185.107.80.93:60152]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 12:45:7]get a new link [198.235.24.120:63744]
+[WARN][2026y2m27d 12:45:7]Decode fail in community with [198.235.24.120:63744]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 12:47:14]get a new link [176.65.132.143:12492]
+[WARN][2026y2m27d 12:47:14]Decode fail in community with [176.65.132.143:12492]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 13:26:20]get a new link [79.124.59.86:60254]
+[WARN][2026y2m27d 13:26:20]Decode fail in community with [79.124.59.86:60254]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 13:30:56]get a new link [184.105.139.68:52064]
+[WARN][2026y2m27d 13:30:56]Decode fail in community with [184.105.139.68:52064]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 13:42:13]get a new link [3.130.168.2:44134]
+[WARN][2026y2m27d 13:42:13]Decode fail in community with [3.130.168.2:44134]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 13:42:33]get a new link [3.130.168.2:54064]
+[ERROR][2026y2m27d 13:42:34]read fail with [3.130.168.2:54064]
+[INFO][2026y2m27d 13:45:23]get a new link [3.130.168.2:35868]
+[WARN][2026y2m27d 13:45:23]Decode fail in community with [3.130.168.2:35868]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 13:46:15]get a new link [3.130.168.2:43942]
+[WARN][2026y2m27d 13:46:15]Decode fail in community with [3.130.168.2:43942]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 13:48:8]get a new link [3.130.168.2:35138]
+[WARN][2026y2m27d 13:48:8]Decode fail in community with [3.130.168.2:35138]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 13:49:13]get a new link [3.130.168.2:53388]
+[WARN][2026y2m27d 13:49:13]Decode fail in community with [3.130.168.2:53388]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 14:18:28]get a new link [167.94.138.170:14856]
+[ERROR][2026y2m27d 14:18:32]read fail with [167.94.138.170:14856]
+[INFO][2026y2m27d 14:18:38]get a new link [167.94.138.170:24320]
+[WARN][2026y2m27d 14:18:40]Decode fail in community with [167.94.138.170:24320]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 14:18:43]get a new link [167.94.138.170:24328]
+[WARN][2026y2m27d 14:18:46]Decode fail in community with [167.94.138.170:24328]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 14:18:48]get a new link [167.94.138.170:56652]
+[WARN][2026y2m27d 14:18:48]Decode fail in community with [167.94.138.170:56652]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 14:19:1]get a new link [167.94.138.170:20184]
+[WARN][2026y2m27d 14:19:2]Decode fail in community with [167.94.138.170:20184]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 14:19:9]get a new link [167.94.138.170:51012]
+[WARN][2026y2m27d 14:19:10]Decode fail in community with [167.94.138.170:51012]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 14:19:18]get a new link [167.94.138.170:7722]
+[WARN][2026y2m27d 14:19:20]Decode fail in community with [167.94.138.170:7722]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:11:28]get a new link [178.159.37.112:65461]
+[WARN][2026y2m27d 15:11:28]Decode fail in community with [178.159.37.112:65461]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:18:32]get a new link [178.83.200.2:60000]
+[WARN][2026y2m27d 15:18:35]Decode fail in community with [178.83.200.2:60000]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:43]get a new link [40.119.40.152:36654]
+[WARN][2026y2m27d 15:27:43]Decode fail in community with [40.119.40.152:36654]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:45]get a new link [40.119.40.152:36660]
+[WARN][2026y2m27d 15:27:45]Decode fail in community with [40.119.40.152:36660]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:46]get a new link [40.119.40.152:36664]
+[WARN][2026y2m27d 15:27:46]Decode fail in community with [40.119.40.152:36664]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:46]get a new link [40.119.40.152:36672]
+[WARN][2026y2m27d 15:27:46]Decode fail in community with [40.119.40.152:36672]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:46]get a new link [40.119.40.152:36682]
+[WARN][2026y2m27d 15:27:46]Decode fail in community with [40.119.40.152:36682]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:47]get a new link [40.119.40.152:36692]
+[WARN][2026y2m27d 15:27:47]Decode fail in community with [40.119.40.152:36692]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:47]get a new link [40.119.40.152:36702]
+[WARN][2026y2m27d 15:27:47]Decode fail in community with [40.119.40.152:36702]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:48]get a new link [40.119.40.152:36704]
+[WARN][2026y2m27d 15:27:49]Decode fail in community with [40.119.40.152:36704]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:49]get a new link [40.119.40.152:36708]
+[WARN][2026y2m27d 15:27:49]Decode fail in community with [40.119.40.152:36708]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:27:50]get a new link [40.119.40.152:45420]
+[WARN][2026y2m27d 15:27:50]Decode fail in community with [40.119.40.152:45420]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:44:15]get a new link [93.123.109.72:65271]
+[WARN][2026y2m27d 15:44:15]Decode fail in community with [93.123.109.72:65271]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:50:38]get a new link [64.62.156.24:23702]
+[WARN][2026y2m27d 15:50:38]Decode fail in community with [64.62.156.24:23702]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:50:52]get a new link [64.62.156.30:40255]
+[WARN][2026y2m27d 15:50:52]Decode fail in community with [64.62.156.30:40255]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
+[INFO][2026y2m27d 15:50:57]get a new link [64.62.156.37:40325]
+[WARN][2026y2m27d 15:50:57]Decode fail in community with [64.62.156.37:40325]
+71
+{"_confirm_code":-1,"_info":"","_meg":"Bad Request!","_permission":-1}
+
