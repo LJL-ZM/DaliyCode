@@ -47,3 +47,15 @@
 *.log
 *.tlog
 *.lastbuildstate
+.vs/
+x64/
+Release/
+Debug/
+*.ipdb
+*.recipe
+*.vcxproj.FileListAbsolute.txt
+*.dll
+*.pdb
+obj/
+bin/
+
