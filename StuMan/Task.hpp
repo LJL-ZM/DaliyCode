@@ -187,8 +187,7 @@ public:
                     meg = "modify fail, target student dose not exist!";
                     info = "";
                 }
-                //TODO
-                std::cout << "mv success--task" << std::endl;
+                //std::cout << "mv success--task" << std::endl;
                 break;
             }
             case OP_QUERY_STUDENT:
@@ -299,7 +298,6 @@ public:
                 float avgScore, maxScore, minScore;
                 if (Manager.scoreStatistics(totalCount, avgScore, maxScore, minScore, excellent, fail))
                 {
-                    //TODO
                     char avg_buf[32], max_buf[32], min_buf[32];
                     snprintf(avg_buf, sizeof(avg_buf), "%.2f", avgScore);
                     snprintf(max_buf, sizeof(max_buf), "%.2f", maxScore);
