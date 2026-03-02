@@ -60,6 +60,7 @@ bool checkStuName(std::string &name)
     while (!(cin >> name)) 
     {
         printf("Invalid input! Please enter letters only: ");
+        fflush(stdout);
         resetCin(); 
     }
     if (name.empty())
@@ -81,11 +82,10 @@ bool checkStuName(std::string &name)
 bool checkStuScore(double &score)
 {
     score = -1; 
-    if (!(cin >> score))
+    while(!(cin >> score))
     {
         printf("Invalid score (must be number)!\n");
         resetCin();
-        return false;
     }   
     if (score < 0 || score > 100)
     {
@@ -99,7 +99,7 @@ bool checkStuScore(double &score)
 bool checkStuId(std::string &id)
 {
     id.clear();
-    if(!(cin >> id)){
+    while(!(cin >> id)){
         printf("id err!\n");
         resetCin();
     }
@@ -125,11 +125,10 @@ bool stuOp(int role)
     //  #define OP_SORT_SCORE 6    // 按成绩排序
     //  #define OP_SORT_ID 7       // 按学号排序
     int op_stu;
-    if (!(cin >> op_stu))
+    while (!(cin >> op_stu))
     {
         resetCin();
         printf("Invaild op_stu! Please input number 1-9\n");
-        return false;
     }
     if (op_stu < 1 || op_stu > 9)
     {

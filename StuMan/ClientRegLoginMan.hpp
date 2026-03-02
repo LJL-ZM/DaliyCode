@@ -4,6 +4,7 @@
 #include <cstdio>
 #include <cstring>
 #include <string>
+#include <limits>
 #include "Protocol.hpp"
 #include "ClientSock.hpp"
 
@@ -56,7 +57,7 @@ int getOp()
 {
     menuOpRegistAndLogin();
     int op;
-    if(!(cin >> op)){
+    while(!(cin >> op)){
         printf("op err!\n");
         resetCin();
     }
@@ -66,7 +67,7 @@ int getOp()
 
 bool checkUsername(std::string &name)
 {
-    if(!(cin >> name)){
+    while(!(cin >> name)){
         printf("name err!\n");
         resetCin();
     }
@@ -88,7 +89,7 @@ bool checkUsername(std::string &name)
 bool checkPassword(std::string& password)
 {
     cin >> password;
-    if(!(cin >> password)){
+    while(!(cin >> password)){
         printf("password err!\n");
         resetCin();
     }
@@ -110,7 +111,7 @@ bool checkPassword(std::string& password)
 bool checkRole(int &role)
 {
     menuAboutRole();
-    if(!(cin >> role)){
+    while(!(cin >> role)){
         printf("role err!\n");
         resetCin();
     }
