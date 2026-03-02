@@ -9,7 +9,7 @@
 #include <limits>
 #include "WinProtocol.h"
 #include "WinClientSock.h"
-using namespace std;
+//using namespace std;
 
 // 操作类型定义
 #define OP_ADD_STUDENT 1   // 添加学生
@@ -47,20 +47,20 @@ void menuOpSort()
     printf("****************************************************************\n");
 }
 
-void resetCin()
-{
-    cin.clear(); 
-    std::cin.ignore((std::numeric_limits<streamsize>::max)(), '\n');
-}
+//void resetCin()
+//{
+//    std::cin.clear();
+//    std::cin.ignore((std::numeric_limits<std::streamsize>::max)(), '\n');
+//}
 
-bool checkStuName(std::string &name)
+bool checkStuName(std::string& name)
 {
     name.clear();
-    while (!(cin >> name)) 
+    while (!(std::cin >> name))
     {
         printf("Invalid input! Please enter letters only: ");
         fflush(stdout);
-        resetCin(); 
+        resetCin();
     }
     if (name.empty())
     {
@@ -78,14 +78,14 @@ bool checkStuName(std::string &name)
     return true;
 }
 
-bool checkStuScore(double &score)
+bool checkStuScore(double& score)
 {
-    score = -1; 
-    while(!(cin >> score))
+    score = -1;
+    while (!(std::cin >> score))
     {
         printf("Invalid score (must be number)!\n");
         resetCin();
-    }   
+    }
     if (score < 0 || score > 100)
     {
         printf("Invalid score (must be 0-100)!\n");
@@ -95,14 +95,14 @@ bool checkStuScore(double &score)
     return true;
 }
 
-bool checkStuId(std::string &id)
+bool checkStuId(std::string& id)
 {
     id.clear();
-    while(!(cin >> id)){
+    while (!(std::cin >> id)) {
         printf("id err!\n");
         resetCin();
     }
-    resetCin(); 
+    resetCin();
     if (id.size() != id_size)
     {
         printf("Invalid id (size must be %d)\n", id_size);
@@ -110,7 +110,7 @@ bool checkStuId(std::string &id)
     }
     for (auto e : id)
     {
-        if (!(e >= '0' && e <= '9')){
+        if (!(e >= '0' && e <= '9')) {
             return false;
         }
     }
@@ -124,7 +124,7 @@ bool stuOp(int role)
     //  #define OP_SORT_SCORE 6    // 按成绩排序
     //  #define OP_SORT_ID 7       // 按学号排序
     int op_stu;
-    while (!(cin >> op_stu))
+    while (!(std::cin >> op_stu))
     {
         resetCin();
         printf("Invaild op_stu! Please input number 1-9\n");
@@ -243,7 +243,7 @@ bool stuOp(int role)
     {
         menuOpSort();
         int order_tmp = -1;
-        cin >> order_tmp;
+        std::cin >> order_tmp;
         if (order_tmp != 0 && order_tmp != 1)
         {
             printf("Invaild order!\n");
@@ -282,7 +282,7 @@ bool stuOp(int role)
     {
         return false;
     }
-    cout << reps._meg << endl
-         << reps._info;
+    std::cout << reps._meg << std::endl
+        << reps._info;
     return true;
 }
