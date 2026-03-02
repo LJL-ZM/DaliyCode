@@ -88,7 +88,6 @@ bool checkUsername(std::string& name)
 }
 bool checkPassword(std::string& password)
 {
-    std::cin >> password;
     while (!(std::cin >> password)) {
         printf("password err!\n");
         resetCin();
