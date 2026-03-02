@@ -3,15 +3,13 @@
 #include <iostream>
 #include <cstdio>
 #include <cstring>
-#include <unistd.h>
 #include <Windows.h>
 #include <string>
-#include <sys/socket.h>
-#include <sys/types.h>
-#include <arpa/inet.h>
+
 #include <limits>
 #include "WinProtocol.h"
 #include "WinClientSock.h"
+using namespace std;
 
 // 操作类型定义
 #define OP_ADD_STUDENT 1   // 添加学生
@@ -52,7 +50,7 @@ void menuOpSort()
 void resetCin()
 {
     cin.clear(); 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    std::cin.ignore((std::numeric_limits<streamsize>::max)(), '\n');
 }
 
 bool checkStuName(std::string &name)
@@ -236,7 +234,7 @@ bool stuOp(int role)
         for (int i = 1; i <= 5; i++)
         {
             printf("loading...\n");
-            usleep(50000);
+            Sleep(0.5);
         }
         break;
     }
@@ -259,7 +257,7 @@ bool stuOp(int role)
         for (int i = 1; i <= 5; i++)
         {
             printf("loading...\n");
-            usleep(50000);
+            Sleep(0.5);
         }
         break;
     }
