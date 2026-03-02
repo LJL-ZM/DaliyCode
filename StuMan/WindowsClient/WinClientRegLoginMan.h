@@ -5,8 +5,8 @@
 #include <cstring>
 #include <string>
 #include <limits>
-#include "WinProtocol.hpp"
-#include "WinClientSock.hpp"
+#include "WinProtocol.h"
+#include "WinClientSock.h"
 
 #define KEY string("i am manager")
 
