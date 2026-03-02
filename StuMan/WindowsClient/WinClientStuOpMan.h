@@ -10,8 +10,8 @@
 #include <sys/types.h>
 #include <arpa/inet.h>
 #include <limits>
-#include "WinProtocol.hpp"
-#include "WinClientSock.hpp"
+#include "WinProtocol.h"
+#include "WinClientSock.h"
 
 // 操作类型定义
 #define OP_ADD_STUDENT 1   // 添加学生
