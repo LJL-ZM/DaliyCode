@@ -50,14 +50,14 @@ void menuOpSort()
 
 void resetCin()
 {
-    cin.clear(); 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    std::cin.clear(); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 bool checkStuName(std::string &name)
 {
     name.clear();
-    while (!(cin >> name)) 
+    while (!(std::cin >> name)) 
     {
         printf("Invalid input! Please enter letters only: ");
         fflush(stdout);
@@ -82,7 +82,7 @@ bool checkStuName(std::string &name)
 bool checkStuScore(double &score)
 {
     score = -1; 
-    while(!(cin >> score))
+    while(!(std::cin >> score))
     {
         printf("Invalid score (must be number)!\n");
         resetCin();
@@ -99,7 +99,7 @@ bool checkStuScore(double &score)
 bool checkStuId(std::string &id)
 {
     id.clear();
-    while(!(cin >> id)){
+    while(!(std::cin >> id)){
         printf("id err!\n");
         resetCin();
     }
@@ -125,7 +125,7 @@ bool stuOp(int role)
     //  #define OP_SORT_SCORE 6    // 按成绩排序
     //  #define OP_SORT_ID 7       // 按学号排序
     int op_stu;
-    while (!(cin >> op_stu))
+    while (!(std::cin >> op_stu))
     {
         resetCin();
         printf("Invaild op_stu! Please input number 1-9\n");
@@ -244,7 +244,7 @@ bool stuOp(int role)
     {
         menuOpSort();
         int order_tmp = -1;
-        cin >> order_tmp;
+        std::cin >> order_tmp;
         if (order_tmp != 0 && order_tmp != 1)
         {
             printf("Invaild order!\n");
@@ -283,7 +283,7 @@ bool stuOp(int role)
     {
         return false;
     }
-    cout << reps._meg << endl
+    std::cout << reps._meg << std::endl
          << reps._info;
     return true;
 }

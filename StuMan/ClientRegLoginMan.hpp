@@ -8,7 +8,7 @@
 #include "Protocol.hpp"
 #include "ClientSock.hpp"
 
-#define KEY string("i am manager")
+#define KEY std::string("i am manager")
 
 
 // 操作类型定义
@@ -49,15 +49,15 @@ void menuAboutRole()
 
 void resetCin()
 {
-    cin.clear(); 
-    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    std::cin.clear(); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 int getOp()
 {
     menuOpRegistAndLogin();
     int op;
-    while(!(cin >> op)){
+    while(!(std::cin >> op)){
         printf("op err!\n");
         resetCin();
     }
@@ -67,7 +67,7 @@ int getOp()
 
 bool checkUsername(std::string &name)
 {
-    while(!(cin >> name)){
+    while(!(std::cin >> name)){
         printf("name err!\n");
         resetCin();
     }
@@ -88,8 +88,8 @@ bool checkUsername(std::string &name)
 }
 bool checkPassword(std::string& password)
 {
-    cin >> password;
-    while(!(cin >> password)){
+    std::cin >> password;
+    while(!(std::cin >> password)){
         printf("password err!\n");
         resetCin();
     }
@@ -111,7 +111,7 @@ bool checkPassword(std::string& password)
 bool checkRole(int &role)
 {
     menuAboutRole();
-    while(!(cin >> role)){
+    while(!(std::cin >> role)){
         printf("role err!\n");
         resetCin();
     }
@@ -129,8 +129,8 @@ bool checkMan(int role)
         printf("if you are manager,please enter the key@");
         fflush(stdout);
         std::string key;
-        cin.ignore();
-        getline(cin, key);
+        std::cin.ignore();
+        std::getline(std::cin, key);
         if (key != KEY)
         {
             return false;
@@ -173,7 +173,7 @@ bool registe()
     Sock socket = getSock();
     // 构建name+password+role
     // 发送请求
-    creatAndSendReq(socket, name, password, to_string(OP_REGISTER), role);
+    creatAndSendReq(socket, name, password, std::to_string(OP_REGISTER), role);
     // 读responce
     std::string package, info;
     bool ret_code;
@@ -183,7 +183,7 @@ bool registe()
         return false;
     }
     // 解析是否成功
-    cout << reps._meg << endl;
+    std::cout << reps._meg << std::endl;
     // cout << reps._confirm_code << endl;
     if (reps._confirm_code != 1)
     {
@@ -214,7 +214,7 @@ bool login(int &role)
     Sock socket = getSock();
     // 构建name+password+role
     // 发送请求
-    creatAndSendReq(socket, name, password, to_string(OP_LOGIN));
+    creatAndSendReq(socket, name, password, std::to_string(OP_LOGIN));
     // 读responce
     std::string package, info;
     bool ret_code;
@@ -224,7 +224,7 @@ bool login(int &role)
         return false;
     }
     // 解析是否成功
-    cout << reps._meg << endl;
+    std::cout << reps._meg << std::endl;
     // cout << reps._confirm_code << endl;
     if (reps._confirm_code != 1)
     {
