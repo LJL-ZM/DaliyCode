@@ -46,17 +46,31 @@ void menuAboutRole()
     printf("*****************************************************************\n");
 }
 
+void resetCin()
+{
+    cin.clear(); 
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
+
 int getOp()
 {
     menuOpRegistAndLogin();
     int op;
-    cin >> op;
+    if(!(cin >> op)){
+        printf("op err!\n");
+        resetCin();
+    }
+    resetCin();
     return op;
 }
 
 bool checkUsername(std::string &name)
 {
-    cin >> name;
+    if(!(cin >> name)){
+        printf("name err!\n");
+        resetCin();
+    }
+    resetCin();
     int flag = 0;
     if (!(name.size() >= 6 && name.size() <= 18))
     {
@@ -71,9 +85,14 @@ bool checkUsername(std::string &name)
     }
     return true;
 }
-bool checkPassword(std::string password)
+bool checkPassword(std::string& password)
 {
     cin >> password;
+    if(!(cin >> password)){
+        printf("password err!\n");
+        resetCin();
+    }
+    resetCin();
     int flag = 0;
     if (!(password.size() >= 6 && password.size() <= 18))
     {
@@ -91,7 +110,11 @@ bool checkPassword(std::string password)
 bool checkRole(int &role)
 {
     menuAboutRole();
-    cin >> role;
+    if(!(cin >> role)){
+        printf("role err!\n");
+        resetCin();
+    }
+    resetCin();
     if (role != ROLE_STU && role != ROLE_TEA && role != ROLE_MAN)
     {
         return false;

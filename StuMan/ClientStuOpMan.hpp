@@ -99,7 +99,10 @@ bool checkStuScore(double &score)
 bool checkStuId(std::string &id)
 {
     id.clear();
-    cin >> id;
+    if(!(cin >> id)){
+        printf("id err!\n");
+        resetCin();
+    }
     resetCin(); 
     if (id.size() != id_size)
     {
