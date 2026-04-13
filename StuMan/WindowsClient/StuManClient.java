@@ -7,7 +7,7 @@ public class StuManClient {
         try {
             // Initialize
             System.out.println("Student Information Management System Client");
-            
+
             // Choose login/register
             int role = 0;
             while (true) {
